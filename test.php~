@@ -1,0 +1,8 @@
+<?php
+
+	require_once "connect.php";
+	$polaczenie = @new mysqli($host, $db_user, $db_password, $db_name);
+	
+	@$polaczenie->query("INSERT INTO others VALUES (NULL, 'test', 'eksperymentalna treść')");
+	echo $polaczenie->insert_id;
+?>

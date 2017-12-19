@@ -1,0 +1,310 @@
+ /*style tronów i pól z krzyżykami zdefiniowane w arkuszu JS*/
+
+@font-face
+{
+	font-family: 'Norse';
+	src: url(fonts/Norse.otf);
+}
+
+body
+{
+	background-color: #000000;
+/*
+========================================================
+ This pattern is downloaded from www.subtlepatterns.com
+ If you need more, that's where to get'em.
+ ========================================================
+*/
+	background-image: url("img/spiration_dark.png");
+	color: #ffffff;
+	font-family: 'Ubuntu', 'Verdana', 'sans';
+	text-align: center;
+}
+
+h1
+{
+	font-family: 'Norse';
+}
+
+a:link
+{
+	text-decoration: none;
+	color: lightgray;
+}
+
+a:visited
+{
+	color: oldlace;
+}
+
+.empty
+{
+	clear:both;
+}
+
+#userbar
+{
+	width: 80%;
+	background-color: #202020;
+	padding: 5px;
+	margin: 10px 10% 0 10%;
+}
+
+#login
+{
+	float:left;
+	text-align: left;
+	width: 70%;
+}
+
+.user
+{
+	float:left;
+	text-align: right;
+	width: 10%;
+}
+
+
+#container
+{
+	max-width: 100%;
+}
+
+#header
+{
+	background-color: #000000;
+	width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-top: 10px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-style: solid;
+	border-color: #000000;
+	border-width: thick;
+	text-shadow: 0 0 5px #000000;
+	border: 5px solid #777777;
+	border-radius: 5px;
+}
+
+#bar
+{
+	background-color: #000000;
+	width: 80%;
+	margin-left:10%;
+	margin-right:10%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-style: solid;
+	border-color: #101010;;
+	border-width: thick;
+	border: 5px solid #777777;
+	border-radius: 5px;
+}
+
+.menu
+{
+	float: left;
+	width: 33.333%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	cursor: pointer;
+
+}
+
+.menu:hover
+{
+	background-color: #232323;
+	box-shadow: 0 0 2px 3px #000000;
+}
+
+#current_player
+{
+	text-align: center;
+	margin-bottom:15px;
+}
+
+#info_left
+{
+	margin-left: 5%;
+	text-align: left;
+	width: 20%;
+}
+
+.info
+{
+	float: left;
+}
+
+#player
+{
+	text-align: center;
+	width: 60%;
+}
+
+#info_right
+{
+	margin-right: 5%;
+	text-align: right;
+	width: 20%;
+}
+
+#content
+{
+	width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+	background-color: #101010;
+	padding: 20px 0 20px 0;
+}
+
+#game
+{
+	margin: auto;
+	margin-top: 20px;
+	width: 1202px;
+}
+
+.error
+{
+	background-color: #FFCCCC;
+	font-weight: bold;
+	color: #990000;
+	border: medium solid red;
+	padding: 7px;
+	margin: 30px;
+}
+
+#current_player
+{
+	width: 682px;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 10px 0 10px 0;
+	background-color: #232323;
+}
+
+.side
+{
+	float: left;
+	width: 200px;
+	margin: 30px;
+	margin-top:0;
+}
+
+.side_header
+{
+	background-color: #232323;
+	padding: 12px;
+	margin-bottom: 10px;
+}
+
+.zbite
+{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	background-color: #232323;
+	padding: 9px;
+}
+
+#board
+{
+	float: left;
+	width:682px;
+	text-align: center;
+}
+
+.square
+{
+	border: 1px solid gray;
+	background-color: #444444;
+	float:left;
+	width: 60px;
+	height: 60px;
+}
+
+.square_throne
+{
+	border: 1px solid gray;
+	background-color: #777777;
+	float:left;
+	width: 60px;
+	height: 60px;
+}
+
+.square_x
+{
+	border: 1px solid gray;
+	background-color: #555555;
+	float:left;
+	width: 60px;
+	height: 60px;
+}
+
+.able
+{
+	cursor: pointer;
+}
+
+.able:hover
+{
+	background-color: darkolivegreen;
+}
+
+.chosen
+{
+	background-color: gray;
+}
+
+.example
+{
+	margin-right: 35%;
+	margin-left:35%;
+	text-align: center;
+	padding: 10px;
+}
+
+.table
+{
+	border-collapse: collapse;
+	table-layout: auto;
+	width: 600px;
+}
+
+.interakcja
+{
+	padding: 10px;
+}
+
+.interakcja:hover
+{
+	background-color: #222222;
+	cursor: pointer;
+}
+
+.message
+{
+	background-color: #99FF66;
+	font-weight: bold;
+	color: #006600;
+	border: medium solid #006600;
+	padding: 7px;
+	margin: 30px;
+}
+
+#footer
+{
+	width: 80%;
+	margin: 40px;
+	margin-right: 10%;
+	margin-left: 10%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background-color: #101010;
+	color: #232323;
+}
+
+.warning
+{
+	color: red;
+}

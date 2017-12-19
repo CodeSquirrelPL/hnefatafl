@@ -1,0 +1,7 @@
+var xml = new XMLHttpRequest();
+function check_login()
+{
+	xml.open("GET", "check.php", false);
+	xml.send(null);
+	alert(xml.responseText);
+}
