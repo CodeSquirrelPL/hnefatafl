@@ -27,7 +27,7 @@
 
 </head>
 
-<body>
+<body onload="zxc()">
 <div id="container">
 <div id="userbar">
 
@@ -214,13 +214,14 @@ END;
 
 	<form id="passwd_form" style="display: none;">
 		<p>Wpisz swoje obecne hasło</p>
+		<div id="oldPassMsg"></div>
 		<input id="old" type="password" onblur="verify_passwd(this.value)"></input>
 		<p>Wpisz nowe hasło</p>
-		<div id="pass_msg">srutututu</div>
+		<div id="pass_msg"></div>
 		<input id="pass1" type="password"></input>
 		<p>Wpisz nowe hasło ponownie</p>
 		<input id="pass2" type="password"></input>
-		<p><input id="button" type="button" onclick="validatePasswdForm(passwd_form)" value="Zmień hasło"/></p>
+		<p><input id="emailButton" type="button" value="Zmień hasło"/></p>
 	</form>
 
 

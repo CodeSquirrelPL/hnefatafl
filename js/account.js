@@ -1,8 +1,12 @@
 var result = "";
 
+function zxc()
+{
+    $("#emailButton").attr('onclick', 'validatePasswdForm(passwd_form)');
+}
+
 function hide_form(id)
 {
-  //alert('#'+id+'_form');
   $('#'+id+'_form').css('display', 'none');
   $('#'+id+'_show').text('zmień '+id);
   $('#'+id+'_show').attr('onclick', 'show_form("'+id+'")');
@@ -22,21 +26,16 @@ function validatePasswdForm(form)
   verify_passwd(form.old.value, form.pass1.value);
 }
 
-function verify_passwd(oldPass)//, newPass)
+function verify_passwd(oldPass, newPass)
 {
     $.post(
     'php/account/verifyPass.php',
     {pass: oldPass},
     function(data)
-    {result=data; if (data==1) alert('podano prawidłowe hasło');/*changePasswd(newPass);*/ else alert("nieprawidłowe hasło");}
+    {result=data; if (data==1) {$("#oldPassMsg").html('podano prawidłowe hasło'); if (newPass) check_password(newPass);} else $("#oldPassMsg").html("nieprawidłowe hasło");}
   )
 }
 
-function changePasswd(pass)
-{
-  alert('podano prawidłowe hasło');
-  //check_password(pass);
-}
 
 /*********************************************************/
 
