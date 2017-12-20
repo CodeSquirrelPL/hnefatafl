@@ -1,9 +1,24 @@
 var result = "";
-
+var password;
 function zxc()
 {
-    $("#emailButton").attr('onclick', 'validatePasswdForm(passwd_form)');
+    button = $("#emailButton");
+    button.attr('onclick', 'validatePasswdForm(passwd_form)');
+    var box = $("#oldPassMsg");
+    password = new data("hasło", "aaAA11", box);
 }
+
+function data(label, content, box) {
+
+  this.label = label;
+  this.content = content;
+  this.box = box;
+
+  this.feedback = function(content) {
+    this.box.html(content);
+  }
+}
+
 
 function hide_form(id)
 {
@@ -32,11 +47,12 @@ function verify_passwd(oldPass, newPass)
     'php/account/verifyPass.php',
     {pass: oldPass},
     function(data)
-    {result=data; if (data==1) {$("#oldPassMsg").html('podano prawidłowe hasło'); if (newPass) check_password(newPass);} else $("#oldPassMsg").html("nieprawidłowe hasło");}
+    {result=data; if (data==1) {$("#oldPassMsg").html('podano prawidłowe hasło'); if (newPass) changePasswd(oldPass, newPass);} else password.feedback("nieprawidłowe hasło");}
   )
 }
 
-
-/*********************************************************/
-
-/*********************************************************/
+function changePasswd(oldPass, newPass)
+{
+    if (newPass==oldPass) password.feedback("nowe hasło nie różni się od poprzedniego");
+    check_password(newPass);
+}

@@ -10,16 +10,11 @@ var bool = 0;
 
 var xml = new XMLHttpRequest();
 
-function clearInput(id)
-{
-  document.getElementById(id).innerHTML = "";
-}
-
 function check_login(login)
 {
 	if (login.length<4 || login.length>64)
   {
-    document.getElementById("login_msg").innerHTML = 'login musi składać się z min 4, max 64 znaków';
+    $("#login_msg").html('login musi składać się z min 4, max 64 znaków');
     return 0;
   }
 
@@ -27,12 +22,12 @@ function check_login(login)
 
 	if (reg.test(login)==0)
   {
-    document.getElementById("login_msg").innerHTML = 'login zawiera niedozwolone znaki';
+    $("#login_msg").html('login zawiera niedozwolone znaki');
     return 0;
   }
 
   check_database(login, 'login');
-  if (bool) return 1;
+  if (bool) {return 1; $("#login_msg").html("");}
   else return 0;
 }
 

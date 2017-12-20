@@ -59,7 +59,7 @@
 ?>
 		<h4>Login</h4><!--(może składać się z liter alfabetu łacińskiego, cyfr, kropek, myślników oraz podkreślników, przynajmniej 4, najwyżej 64 znaków)-->
 		<p id="login_msg" class="warning"></p>
-		<input type="text" name="login" id="nick" onfocus='clearInput("login_msg")'></input></br>
+		<input type="text" name="login" id="nick"></input></br>
 <?php
 		if (isset($_SESSION['error_pass']))
 		echo '<div class="error">'.$_SESSION['error_pass'].'</div>';
@@ -67,13 +67,13 @@
 		<h4>Hasło</h4>
 		<!--musi zawierać małą i dużą literę, cyfrę i być nie krótsze niż 6 znaków-->
 		<p id="pass_msg" class="warning"></p>
-		<input type="password" name="pass" id="pass" class="input" onfocus='clearInput("pass_msg")'></input>
+		<input type="password" name="pass" id="pass" class="input"></input>
 		<h4>Podaj hasło ponownie</h4>
 		<p id="pass2_msg" class="warning"></p>
-		<input type="password" name="pass2" id="pass2" onfocus='clearInput("pass2_msg")'></input>
+		<input type="password" name="pass2" id="pass2"></input>
 		<h4>Adres e-mail</h4>(opcjonalnie)<!-- - podanie adresu pozwoli na odzyskanie konta po utracie hasła)--></p>
 		<p id="email_msg" class="warning"></p>
-		<input type="email" name="email" onfocus='clearInput("email_msg")'></input>
+		<input type="email" name="email"></input>
 		<p>Zakładając konto, zgadzasz się na zasady opisane w <a href="terms.php">tym dokumencie</a><!--Uwaga. Ponieważ nie mogę zagwarantować jego bezpieczeństwa, czat w grze nie jest przeznaczony do przesyłania prywatnych czy intymnych informacji. Twoje konto może zostać usunięte po okresie nieobecności dłuższym niż trzy miesiące. Przesyłanie obraźliwych, wulgarnych czy nawołujących do przemocy treści grozi usunięciem konta. Korzystasz z serwisu na własną odpowiedzialność.--></p>
 		<p id="czekaj"></p>
 		</form>

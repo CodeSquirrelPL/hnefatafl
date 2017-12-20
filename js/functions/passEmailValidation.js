@@ -41,12 +41,12 @@ function check_password(pass1)
     return 0;
   }
 
-	else return 1;
+	else {$("#pass_msg").html(""); return 1;}
 }
 
 function check_passwords (pass1, pass2)
 {
-	if (pass1==pass2) return 1;
+	if (pass1==pass2) {$("#pass2_msg").html(""); return 1;}
 	else
   {
     $("#pass2_msg").html("hasła są różne");
