@@ -15,7 +15,7 @@ body
  If you need more, that's where to get'em.
  ========================================================
 */
-	background-image: url("img/spiration_dark.png");
+	background-image: url("img/dark_wood.png");
 	color: #ffffff;
 	font-family: 'Ubuntu', 'Verdana', 'sans';
 	text-align: center;
@@ -24,17 +24,18 @@ body
 h1
 {
 	font-family: 'Norse';
+	font-size: 40px;
 }
 
 a:link
 {
 	text-decoration: none;
-	color: lightgray;
+	color: #99ff99;
 }
 
 a:visited
 {
-	color: oldlace;
+	color: #cccc99;
 }
 
 .empty
@@ -45,9 +46,9 @@ a:visited
 #userbar
 {
 	width: 80%;
-	background-color: #202020;
+	background-color: #303030;
 	padding: 5px;
-	margin: 10px 10% 0 10%;
+	margin: 30px auto 30px auto;
 }
 
 #login
@@ -72,34 +73,35 @@ a:visited
 
 #header
 {
-	background-color: #000000;
+	background-color: #404040;
+	color: white;
 	width: 80%;
-	margin-left: 10%;
-	margin-right: 10%;
-	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 40px;
 	padding-top: 15px;
 	padding-bottom: 15px;
+	text-shadow: 1px 1px 2px black; /*
 	border-style: solid;
 	border-color: #000000;
 	border-width: thick;
-	text-shadow: 0 0 5px #000000;
 	border: 5px solid #777777;
-	border-radius: 5px;
+	border-radius: 5px;*/
 }
 
 #bar
 {
-	background-color: #000000;
+	background-color: #777777;
 	width: 80%;
-	margin-left:10%;
-	margin-right:10%;
+	margin-left:auto;
+	margin-right:auto;
 	margin-top: 10px;
 	margin-bottom: 10px;
-	border-style: solid;
+	/*border-style: solid;
 	border-color: #101010;;
 	border-width: thick;
 	border: 5px solid #777777;
-	border-radius: 5px;
+	border-radius: 5px;*/
 }
 
 .menu
@@ -109,19 +111,14 @@ a:visited
 	padding-top: 10px;
 	padding-bottom: 10px;
 	cursor: pointer;
-
+	color: black;
+	font-weight: bold;
 }
 
 .menu:hover
 {
-	background-color: #232323;
-	box-shadow: 0 0 2px 3px #000000;
-}
-
-#current_player
-{
-	text-align: center;
-	margin-bottom:15px;
+	background-color: #AAAAAA;
+	/*box-shadow: 0 0 2px 3px #000000;*/
 }
 
 #info_left
@@ -151,11 +148,11 @@ a:visited
 
 #content
 {
-	width: 80%;
+	width: 70%;
 	margin-left: 10%;
 	margin-right: 10%;
 	background-color: #101010;
-	padding: 20px 0 20px 0;
+	padding: 20px 5% 20px 5%;
 }
 
 #game
@@ -177,11 +174,15 @@ a:visited
 
 #current_player
 {
+	text-align: center;
+	margin-bottom:15px;
 	width: 682px;
 	margin-right: auto;
 	margin-left: auto;
 	padding: 10px 0 10px 0;
-	background-color: #232323;
+	background-color: #404040;
+	text-shadow: 1px 1px 3px black;
+
 }
 
 .side
@@ -258,10 +259,9 @@ a:visited
 
 .example
 {
-	margin-right: 35%;
-	margin-left:35%;
+margin: auto;
 	text-align: center;
-	padding: 10px;
+	width: 190px;
 }
 
 .table
@@ -301,7 +301,7 @@ a:visited
 	padding-top: 5px;
 	padding-bottom: 5px;
 	background-color: #101010;
-	color: #232323;
+	color: #404040;
 }
 
 .warning
