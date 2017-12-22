@@ -29,18 +29,22 @@ h1
 
 a:link
 {
-	text-decoration: none;
-	color: #99ff99;
+	color: inherit;
 }
 
 a:visited
 {
-	color: #cccc99;
+	color: inherit;
 }
 
 .empty
 {
 	clear:both;
+}
+
+.notUnderlined
+{
+	text-decoration: none;
 }
 
 #userbar
@@ -107,7 +111,11 @@ a:visited
 .menu
 {
 	float: left;
-	width: 33.333%;
+	width: 31.333%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 1%;
+	margin-right: 1%;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	cursor: pointer;
@@ -118,7 +126,7 @@ a:visited
 .menu:hover
 {
 	background-color: #AAAAAA;
-	/*box-shadow: 0 0 2px 3px #000000;*/
+	box-shadow: 0 0 2px 3px #666666;
 }
 
 #info_left

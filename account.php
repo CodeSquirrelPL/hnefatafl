@@ -217,9 +217,10 @@ END;
 		<div id="oldPassMsg"></div>
 		<input id="old" type="password" onblur="verify_passwd(this.value)"></input>
 		<p>Wpisz nowe hasło</p>
-		<div id="pass_msg"></div>
+		<div id="pass1Msg"></div>
 		<input id="pass1" type="password"></input>
 		<p>Wpisz nowe hasło ponownie</p>
+		<div id="pass2Msg"></div>
 		<input id="pass2" type="password"></input>
 		<p><input id="emailButton" type="button" value="Zmień hasło"/></p>
 	</form>
