@@ -6,14 +6,14 @@ function zxc()
     $("#emailButton").attr('onclick', 'validatePasswdForm(passwd_form)');
 }
 
-function data(label, content, box) {
+function data(label, value, box) {
 
   this.label = label;
-  this.content = content;
+  this.value = value;
   this.box = box;
 
-  this.feedback = function(content) {
-    this.box.html(content);
+  this.feedback = function(value) {
+    this.box.html(value);
   }
 }
 
@@ -36,7 +36,7 @@ function validatePasswdForm(form)
 {
   oldPassword = new data("dotychczasowe hasło", form.old.value, $("#oldPassMsg"));
   newPassword = [new data("nowe hasło", form.pass1.value, $("#pass1Msg")), new data("powtórzone nowe hasło", form.pass2.value, $("#pass2Msg"))];
-  if (form.old.value=="" || form.pass1.value=="" || form.pass1.value=="") { alert("wypełnij wszystkie pola!"); return 0; }
+  if (oldPassword.value=="" || newPassword[0].value=="" || newPassword[1].value=="") { alert("wypełnij wszystkie pola!"); return 0; }
   if (form.pass1.value!=form.pass2.value) { password.feedback("podane hasła są różne"); return 0;  }
   verify_passwd(form.old.value, form.pass1.value);
 }
@@ -47,12 +47,12 @@ function verify_passwd(oldPass, newPass)
     'php/account/verifyPass.php',
     {pass: oldPass},
     function(data)
-    {result=data; if (data==1) {$("#oldPassMsg").html('podano prawidłowe hasło'); if (newPass) changePasswd(oldPass, newPass);} else password.feedback("nieprawidłowe hasło");}
+    {result=data; if (data==1) {$("#oldPassMsg").html('podano prawidłowe hasło'); if (newPass) changePasswd(oldPass, newPass);} else oldPassword.feedback("nieprawidłowe hasło");}
   )
 }
 
 function changePasswd(oldPass, newPass)
 {
-    if (newPass==oldPass) newPassword[1].feedback("nowe hasło nie różni się od poprzedniego");
-    check_password(newPass);
+    if (newPass==oldPass) newPassword[0].feedback("nowe hasło nie różni się od poprzedniego");
+    check_password(newPassword[0]);
 }

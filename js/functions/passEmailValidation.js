@@ -7,9 +7,10 @@ function check_password(pass1)
 //zwraca 2 - hasło zawiera niedozwolone znaki
 //zwraca 3 - hasło nie zawiera niezbędnych znaków
 
-	if (pass1.length<6 || pass1.length>64)
+	if (pass1.value.length<6 || pass1.value.length>64)
   {
-		$("#pass_msg").html("hasło musi się składać z min 6, max 64 znaków");
+
+		pass1.feedback("hasło musi się składać z min 6, max 64 znaków");
     return 0;
   }
 

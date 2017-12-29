@@ -129,6 +129,12 @@ a:visited
 	box-shadow: 0 0 2px 3px #666666;
 }
 
+.menu:active
+{
+	background-color: #AAAAAA;
+	box-shadow: 0 0 2px 3px #666666;
+}
+
 #info_left
 {
 	margin-left: 5%;
