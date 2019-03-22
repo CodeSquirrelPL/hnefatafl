@@ -1,9 +1,11 @@
 var result = "";
 var oldPassword;
 var newPassword;
+var newEmail;
 function zxc()
 {
-    $("#emailButton").attr('onclick', 'validatePasswdForm(passwd_form)');
+  return 0;
+    //$("#emailButton").attr('onclick', 'validatePasswdForm(passwd_form)');
 }
 
 function data(label, value, box) {
@@ -32,27 +34,83 @@ function show_form(id)
   $('#'+id+'_show').attr('onclick', 'hide_form("'+id+'")');
 }
 
-function validatePasswdForm(form)
+function check_password(pass1)
 {
-  oldPassword = new data("dotychczasowe hasło", form.old.value, $("#oldPassMsg"));
-  newPassword = [new data("nowe hasło", form.pass1.value, $("#pass1Msg")), new data("powtórzone nowe hasło", form.pass2.value, $("#pass2Msg"))];
-  if (oldPassword.value=="" || newPassword[0].value=="" || newPassword[1].value=="") { alert("wypełnij wszystkie pola!"); return 0; }
-  if (form.pass1.value!=form.pass2.value) { password.feedback("podane hasła są różne"); return 0;  }
-  verify_passwd(form.old.value, form.pass1.value);
+	if (pass1.length<6 || pass1.length>64)
+  {
+
+		newPassword.feedback("hasło musi się składać z min 6, max 64 znaków");
+    return 0;
+  }
+
+	var reg = /[a-z]/;
+	if (!reg.test(pass1))
+  {
+    newPassword.feedback("hasło musi zawierać min. 1 małą literę");
+    return 0;
+  }
+
+	reg = /[A-Z]/;
+	if (!reg.test(pass1))
+  {
+    newPassword.feedback("hasło musi zawierać min. 1 dużą literę");
+    return 0;
+  }
+
+	reg = /[0-9]/;
+	if (!reg.test(pass1))
+  {
+    newPassword.feedback("hasło musi zawierać min. 1 cyfrę");
+    return 0;
+  }
+
+	reg = /^[a-zA-Z0-9;:<=>\?@]*$/
+	if (!reg.test(pass1))
+  {
+    newPassword.feedback("hasło zawiera niedozwolone znaki");
+    return 0;
+  }
+
+	else {newPassword.feedback(""); return 1;}
 }
 
-function verify_passwd(oldPass, newPass)
+function validateEmailForm(form)
 {
+  if (form.pass.value=="" || form.email.value=="") { alert("wypełnij wszystkie pola!"); return 0; }
+  newEmail = new data("nowy adres e-mail", form.email.value, $("#passMsg"));
+  if (verify_passwd(form.pass.value)==0 || emailValidate(newEmail.value)==0) {alert("formularz nie został wypełniony poprawnie"); return 0;}
+  else alert("formularz został poprawnie wypełniony"); $("#email_form").submit();
+}
+
+function validatePasswdForm(form)
+{
+  if (form.old.value=="" || form.pass1.value=="" || form.pass2.value=="") { alert("wypełnij wszystkie pola!"); return 0; }
+  newPassword = new data("nowe hasło", form.pass1.value, $("#pass1Msg"));
+  if (form.pass1.value!=form.pass2.value) { newPassword.feedback("podane hasła są różne"); return 0;  }
+  if (verify_passwd(form.old.value)==0 || changePasswd(oldPassword.value, newPassword.value)==0) {alert("formularz nie został wypełniony poprawnie"); return 0;}
+  else alert("formularz został poprawnie wypełniony"); $("#passwd_form").submit();
+
+}
+
+function verify_passwd(oldPass)
+{
+    oldPassword = new data("dotychczasowe hasło", oldPass, $("#oldPassMsg"));
     $.post(
     'php/account/verifyPass.php',
     {pass: oldPass},
     function(data)
-    {result=data; if (data==1) {$("#oldPassMsg").html('podano prawidłowe hasło'); if (newPass) changePasswd(oldPass, newPass);} else oldPassword.feedback("nieprawidłowe hasło");}
+    {result=data; if (data==1) {$("#oldPassMsg").html('podano prawidłowe hasło'); return 1;} else {oldPassword.feedback("nieprawidłowe hasło"); return 0;}}
   )
 }
 
 function changePasswd(oldPass, newPass)
 {
-    if (newPass==oldPass) newPassword[0].feedback("nowe hasło nie różni się od poprzedniego");
-    check_password(newPassword[0]);
+    if (newPass==oldPass) {newPassword.feedback("nowe hasło nie różni się od poprzedniego"); return 0;}
+    return check_password(newPassword.value);
+}
+
+function emailValidate(email)
+{
+  if (email) return 1;
+  else return 0;
 }

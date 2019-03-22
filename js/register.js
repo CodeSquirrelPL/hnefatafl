@@ -27,16 +27,16 @@ function check_login(login)
   }
 
   check_database(login, 'login');
-  if (bool) {return 1; $("#login_msg").html("");}
+  if (bool) {$("#login_msg").html(""); return 1;}
   else return 0;
 }
 
 function check(form)
 {
-  var login = [check_login(form.login.value), check_password(form.pass.value), check_passwords(form.pass.value, form.pass2.value), check_email(form.email.value)];
+  var login = [check_login(form.login.value), check_password(form.pass1.value), check_passwords(form.pass1.value, form.pass2.value), check_email(form.email.value)];
 	if (login[0]!=0 && login[1]!=0 && login[2]!=0 && login[3]!=0)
   {
-    document.getElementById("rejestracja").submit();
+    $("#rejestracja").submit();
   }
 	return 0;
 }

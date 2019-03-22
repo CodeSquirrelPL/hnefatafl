@@ -169,8 +169,8 @@ else echo '<body>';
 
 	<div id="bar">
 		<a href="enter.php"><div class="menu">Graj przez sieć</div></a>
-		<a href="rules.html"><div class="menu">Zasady</div></a>
-		<a href="about.html"><div class="menu">O grze</div></a>
+		<a href="rules.php"><div class="menu">Zasady</div></a>
+		<a href="about.php"><div class="menu">O grze</div></a>
 		<div class="empty"></div>
 	</div>
 

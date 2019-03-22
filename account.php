@@ -1,8 +1,9 @@
 <?php
 		require_once "php/functions/phpHeader.php";
 
-		$rezultat = @$polaczenie->query("SELECT id FROM challenges WHERE challenged=".$_SESSION['id']." AND received='0000-00-00 00:00:00'");
+		if ($rezultat = @$polaczenie->query("SELECT id FROM challenges WHERE challenged=".$_SESSION['id']." AND received='0000-00-00 00:00:00'"))
 		$_SESSION['challenges']=$rezultat->num_rows;
+		else $_SESSION['challenges']=0;
 		$rezultat = @$polaczenie->query("SELECT id FROM games WHERE (id_black='".$_SESSION['id']."' OR id_white='".$_SESSION['id']."') AND date_finish='0000-00-00 00:00:00'");
 		$_SESSION['games']=$rezultat->num_rows;
 		$rezultat->free_result();
@@ -21,7 +22,6 @@
 
 	<link rel="stylesheet" href="style.css" type="text/css" />
 
-	<script src="js/functions/passEmailValidation.js"></script>
 	<script src="js/account.js"></script>
 	<script src="extras/jquery.js"></script>
 
@@ -45,8 +45,8 @@ require_once "php/functions/userbar.php";
 
 	<div id="bar">
 		<a href="index.php"><div class="menu">Zagraj przy jednym komputerze</div></a>
-		<a href="rules.html"><div class="menu">Zasady</div></a>
-		<a href="about.html"><div class="menu">O grze</div></a>
+		<a href="rules.php"><div class="menu">Zasady</div></a>
+		<a href="about.php"><div class="menu">O grze</div></a>
 		<div class="empty"></div>
 	</div>
 	<div id="content">
@@ -193,17 +193,29 @@ END;
 	$result = $result->fetch_assoc();
 
 	echo "<p><b>Login</b>: ".$_SESSION['login']."</p>";
-	echo "<p><b>Adres e-mail</b>: ".$result['email']."</p>";
+	if ($result['email'])
+	{
+		$email = $result['email'];
+echo <<<EOL
+		<p><b>Adres e-mail</b>: $email </p>
+		<button id='email_show' onclick='show_form("email")'>Zmień adres e-mail</button>
+EOL;
+		unset($email);
+	}
+	else echo <<<EOL
+	<p>Brak adresu e-mail.</p>
+	<button id='email_show' onclick='show_form("email")'>Dodaj adres e-mail</button>
+EOL;
 ?>
 
-	<button id='email_show' onclick='show_form("email")'>Zmień adres e-mail</button>
-
-	<form id="email_form" style="display: none;">
+	<form id="email_form" style="display: none;"  method="POST" action="php/account/changeEmail.php">
 		<p>Wpisz swoje hasło</p>
-		<input id="pass" type="password"></input>
+		<div id="passMsg"></div>
+		<input id="pass" name="pass" type="password"></input>
 		<p>Wpisz nowy adres email</p>
-		<input id="new_email" type="email"></input>
-		<p><input id="button" type="button" value="Zmień adres e-mail"/></p>
+		<div id="emailMsg"></div>
+		<input id="email" name="email" type="email"></input>
+		<p><input id="emailButton" type="button" value="Zmień adres e-mail"  onclick="validateEmailForm(email_form)"/></p>
 	</form>
 
 	<?php
@@ -212,17 +224,17 @@ END;
 
 	<button id='passwd_show' onclick='show_form("passwd")'>Zmień hasło</button>
 
-	<form id="passwd_form" style="display: none;">
+	<form id="passwd_form" style="display: none;" method="POST" action="php/account/changePasswd.php">
 		<p>Wpisz swoje obecne hasło</p>
 		<div id="oldPassMsg"></div>
 		<input id="old" type="password" onblur="verify_passwd(this.value)"></input>
 		<p>Wpisz nowe hasło</p>
 		<div id="pass1Msg"></div>
-		<input id="pass1" type="password"></input>
+		<input id="pass1" name="pass1" type="password"></input>
 		<p>Wpisz nowe hasło ponownie</p>
 		<div id="pass2Msg"></div>
-		<input id="pass2" type="password"></input>
-		<p><input id="emailButton" type="button" value="Zmień hasło"/></p>
+		<input id="pass2" name="pass2" type="password"></input>
+		<p><input id="passButton" type="button" value="Zmień hasło" onclick="validatePasswdForm(passwd_form)"/></p>
 	</form>
 
 
@@ -230,11 +242,14 @@ END;
 
 /************************************* wyniki - wyświetlanie **********************************************/
 
+	echo "</br></br><hr/><h3>Wyniki</h3>";
+
 	$result = @$polaczenie->query("SELECT * from games WHERE (id_black=".$_SESSION['id']." OR id_white=".$_SESSION['id'].") AND date_finish!='0000-00-00 00:00:00' ORDER BY date_finish DESC");
-	echo "</br></br><hr/><h3>Wyniki</h3><h4>Rozegrane partie</h4>";
-	if ($result->num_rows>0)
+
+	if ($result && $result->num_rows>0)
 	{
 ?>
+	<h4>Rozegrane partie</h4>
 	<table class="table" align="center" border="1">
 		<tr>
 			<td><h4>Data</h4></td><td><h4>Przeciwnik</h4></td><td><h4>Wynik</h4></td>
@@ -273,7 +288,7 @@ END;
 	echo "</table>";
 	}
 	else echo "Brak wyników do wyświetlenia";
-	$result->free_result();
+	if ($result) $result->free_result();
 	unset($_SESSION['message']);
 
 	echo "</br><hr/><h3>Szukaj użytkowników</h3>";

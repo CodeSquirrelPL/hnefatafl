@@ -3,7 +3,7 @@
 
 	header('Content-Type: application/json');
 
-	require_once "connect.php";
+	require_once "php/functions/connect.php";
 
 	$polaczenie = @new mysqli($host, $db_user, $db_password, $db_name);
 
@@ -22,7 +22,6 @@
 		if (mysqli_num_rows($result)>0)
 		{
 			return 0;
-
 		}
 		else
 		{

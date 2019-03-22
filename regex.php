@@ -18,7 +18,7 @@
 <div id="container">
 	<!--
 	<div id="userbar">
-		<a href="login.html">Zaloguj się</a> lub <a href="register.html">zarejestruj</a>, żeby zagrać przez sieć
+		<a href="login.php">Zaloguj się</a> lub <a href="register.php">zarejestruj</a>, żeby zagrać przez sieć
 	</div>
 	-->
 	<div id="header">

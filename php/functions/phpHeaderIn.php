@@ -2,9 +2,9 @@
 
 	session_start();
 
-	if (!isset($_SESSION['zalogowany']) || ($_SESSION['zalogowany']==false))
+	if (isset($_SESSION['zalogowany']) && ($_SESSION['zalogowany']==true))
 	{
-		header('Location: ../../hnefatafl/enter.php');
+		header('Location: ../../account.php');
 		exit();
 	}
 

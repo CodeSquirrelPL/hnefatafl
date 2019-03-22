@@ -12,12 +12,12 @@
 
 	$polaczenie = @new mysqli($host, $db_user, $db_password, $db_name);
 
-	if ($polaczenie->connect_errno!=0)
+		if ($polaczenie->connect_errno!=0)
 	{
 		echo "Error: ".$polaczenie->connect_errno;
+		exit();
 	}
-	else
-	{
+
 		$login = mysqli_real_escape_string($polaczenie,$_POST['login']);
 		$result = @$polaczenie->query(sprintf("SELECT id FROM users WHERE login='%s'", $login));
 		$result = $result->fetch_assoc();
@@ -35,7 +35,7 @@
 			unset($_SESSION['error_login']);
 		}
 
-		if ($_POST['pass']!=$_POST['pass2'])
+		if ($_POST['pass1']!=$_POST['pass2'])
 		{
 			$_SESSION['error_pass']="Wpisano dwa różne hasła";
 			header('Location: enter.php');
@@ -44,7 +44,7 @@
 		else
 		{
 			unset($_SESSION['error_pass']);
-			$pass=mysqli_real_escape_string($polaczenie,$_POST['pass']);
+			$pass=mysqli_real_escape_string($polaczenie,$_POST['pass1']);
 		}
 
 		if(isset($login) && isset($pass))
@@ -54,8 +54,6 @@
 		$_SESSION['login']=$login;
 		$_SESSION['zalogowany']=true;
 		header('Location: account.php');
-
-	}
 
 
 ?>

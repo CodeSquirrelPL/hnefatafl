@@ -61,8 +61,8 @@
 	
 	<div id="bar">
 		<a href="index.php"><div class="menu">Zagraj przy jednym komputerze</div></a>
-		<a href="rules.html"><div class="menu">Zasady</div></a>
-		<a href="about.html"><div class="menu">O grze</div></a>
+		<a href="rules.php"><div class="menu">Zasady</div></a>
+		<a href="about.php"><div class="menu">O grze</div></a>
 		<div class="empty"></div>
 	</div>
 	<div id="content">

@@ -5,6 +5,6 @@ function data(label, value, box) {
   this.box = box;
 
   this.feedback = function(content) {
-    this.box.html(content);
+    this.box.php(content);
   }
 }

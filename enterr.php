@@ -31,7 +31,7 @@
 <div id="container">
 	<!--
 	<div id="userbar">
-		<a href="login.html">Zaloguj się</a> lub <a href="register.html">zarejestruj</a>, żeby zagrać przez sieć
+		<a href="login.php">Zaloguj się</a> lub <a href="register.php">zarejestruj</a>, żeby zagrać przez sieć
 	</div>
 	-->
 	<div id="header">
@@ -41,8 +41,8 @@
 
 	<div id="bar">
 		<a href="index.php"><div class="menu">Zagraj przy jednym komputerze</div></a>
-		<a href="rules.html"><div class="menu">Zasady</div></a>
-		<a href="about.html"><div class="menu">O grze</div></a>
+		<a href="rules.php"><div class="menu">Zasady</div></a>
+		<a href="about.php"><div class="menu">O grze</div></a>
 		<div class="empty"></div>
 	</div>
 
@@ -63,18 +63,19 @@
 <?php
 		if (isset($_SESSION['error_pass']))
 		echo '<div class="error">'.$_SESSION['error_pass'].'</div>';
+		unset ($_SESSION['error_pass']);
 ?>
 		<h4>Hasło</h4>
 		<!--musi zawierać małą i dużą literę, cyfrę i być nie krótsze niż 6 znaków-->
 		<p id="pass_msg" class="warning"></p>
-		<input type="password" name="pass" id="pass" class="input"></input>
+		<input type="password" name="pass1" id="pass1" class="input"></input>
 		<h4>Podaj hasło ponownie</h4>
 		<p id="pass2_msg" class="warning"></p>
 		<input type="password" name="pass2" id="pass2"></input>
 		<h4>Adres e-mail</h4>(opcjonalnie)<!-- - podanie adresu pozwoli na odzyskanie konta po utracie hasła)--></p>
 		<p id="email_msg" class="warning"></p>
 		<input type="email" name="email"></input>
-		<p>Zakładając konto, zgadzasz się na zasady opisane w <a href="terms.php">tym dokumencie</a><!--Uwaga. Ponieważ nie mogę zagwarantować jego bezpieczeństwa, czat w grze nie jest przeznaczony do przesyłania prywatnych czy intymnych informacji. Twoje konto może zostać usunięte po okresie nieobecności dłuższym niż trzy miesiące. Przesyłanie obraźliwych, wulgarnych czy nawołujących do przemocy treści grozi usunięciem konta. Korzystasz z serwisu na własną odpowiedzialność.--></p>
+		<p>Zakładając konto, zgadzasz się na zasady opisane w <a target="_blank" href="terms.php">tym dokumencie</a><!--Uwaga. Ponieważ nie mogę zagwarantować jego bezpieczeństwa, czat w grze nie jest przeznaczony do przesyłania prywatnych czy intymnych informacji. Twoje konto może zostać usunięte po okresie nieobecności dłuższym niż trzy miesiące. Przesyłanie obraźliwych, wulgarnych czy nawołujących do przemocy treści grozi usunięciem konta. Korzystasz z serwisu na własną odpowiedzialność.--></p>
 		<p id="czekaj"></p>
 		</form>
 		<noscript>rejestracja nie jest możliwa, gdyż twoja przeglądarka nie obsługuje JavaScriptu. Włącz obsługę JavaScriptu i odśwież stronę, by się zarejestrować</noscript>
@@ -82,6 +83,7 @@
 
 	</div>
 
+	<div id="submit"></div>
 
 	<div id="footer">napisane przez Pyrę dla ludzi / written by Potato for people</div>
 

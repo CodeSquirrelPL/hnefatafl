@@ -2,7 +2,7 @@ var zbite = [0, 0];
 var i, j, x, y;
 var style_throne = "background-image: url(img/throne.png)";
 var style_x = "background-image: url(img/x.png)";
-var url = ['<img src="img/king.png"/>', '<img src="img/white.png"/>', '<img src="img/black.png"/>']
+var url = ['<img src="img/king.svg" width="60" height="60"/>', '<img src="img/white.svg"  width="60" height="60"/>', '<img src="img/black.svg" width="60" height="60"/>']
 var move = 0; //zaczynają czarne (jeśli chcesz zmienić, zmodyfikuj funkcję "whose_counter()")
 var x1=0, y1=0;
 var players = ["czarne", "białe"];
