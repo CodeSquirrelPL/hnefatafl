@@ -212,13 +212,14 @@ function ability_fields(x, y) //sprawdzanie, czy na polu można postawić aktywn
 			return 0;
 		}
 
-	if (x1==x)
+	if (x1==x)	//jeśli pole jest w tej samej płaszczyźnie x co pole startowe
 	{
+		/* nieprzeskakiwanie nad tronem
 		if (x==5 && board[x1][y1].value!=1 && Math.max(y1, y)>5 && Math.min(y1, y)<5)
 		{
 			board[x][y].notAble();
 			return 0;
-		}
+		}	*/
 
 		if (y>y1)
 			for (i=y-y1; i>0; i--)
@@ -239,13 +240,14 @@ function ability_fields(x, y) //sprawdzanie, czy na polu można postawić aktywn
 				}
 		}
 	}
-	else if (y1==y)
+	else if (y1==y)	//jeśli pole jest w tej samej płaszczyźnie y co pole startowe
 	{
+		/* nieprzeskakiwanie nad tronem
 		if (y==5 && board[x1][y1].value!=1 && Math.max(x1, x)>5 && Math.min(x1, x)<5)
 			{
 				board[x][y].notAble();
 				return 0;
-			}
+			}	*/
 
 		if (x>x1)
 		for (i=x-x1; i>0; i--)

@@ -1,17 +1,17 @@
 <?php
 
 	session_start();
-	
+
 	require_once "connect.php";
-	
+
 	$polaczenie = @new mysqli($host, $db_user, $db_password, $db_name);
-	
+
 		if ($polaczenie->connect_errno!=0)
 	{
 		echo "Error: ".$polaczenie->connect_errno;
 		exit();
 	}
-	
+
 	if (isset($_GET['id'])) $id = $_GET['id'];
 	else {
 		header('Location: account.php');
@@ -20,10 +20,10 @@
 
 	//if ($id==1)
 	//{header('Location: pyra.php'); exit();}
-	
+
 	$user = @$polaczenie->query(sprintf("SELECT * FROM users WHERE id='%s'", $id));
 	$user = $user->fetch_assoc();
-	
+
 	if (isset($_SESSION['zalogowany']))
 	{
 	$rezultat = @$polaczenie->query("SELECT id FROM challenges WHERE challenged=".$_SESSION['id']." AND received='0000-00-00 00:00:00'");
@@ -42,32 +42,39 @@
 	<title>Hnefatafl - profil użytkownika <?php echo $user['login'];?></title>
 	<meta name="description" content="Hnafatafl - szachy wikingów" />
 	<meta name="keywords" content="hnefatafl, szachy wikingów, wikingowie, szachy" />
-	
+
 	<link rel="stylesheet" href="style.css" type="text/css" />
-	
+	<script src="extras/jquery.js"></script>
+
 	<?php
 		echo '<script>var user_id = '.$user['id'].'; var login = "'.$user['login'].'";</script>';
 	?>
-	
+
 	<script>
-	
+
+	function hide_form()
+	{
+		$("#challenge").html('<img src="img/miecze2.png" onclick="show_form();"/><br/>Rzuć wyzwanie użytkownikowi '+ login);
+	}
+
 	function show_form()
 	{
-		var form = '<img src="img/miecze2.png"/><form action="challenge.php?id='+ user_id +'" method="POST">';
+		var form = '<img src="img/miecze2.png" onclick="hide_form();"/><br/>Rzucasz wyzwanie użytkownikowi '+ login;
+		form += '<form action="challenge.php?id='+ user_id +'" method="POST">';
 		form += '<p><label><input type="radio" name="colors" value="random"/> losowy wybór kolorów</label></p>';
 		form += '<p><label><input type="radio" name="colors" value="black"/> zaczynasz czarnymi</label></p>';
 		form += '<p><label><input type="radio" name="colors" value="white"/> zaczynasz białymi</label></p>';
 		form += '<p><label><input type="radio" name="colors" value="choice"/> ' + login + ' wybiera kolor pionków</label></p>';
 		form += '<input type="submit" value="Rzuć wyzwanie"/></form>';
 
-		document.getElementById("challenge").innerHTML = form;
+		$("#challenge").html(form);
 
 		document.getElementById("challenge").setAttribute("onclick", "");
 		document.getElementById("challenge").setAttribute("style", "cursor: auto");
 	}
-	
+
 	</script>
-	
+
 </head>
 
 <body>
@@ -76,15 +83,20 @@
 <?php
 	if (!isset($_SESSION['zalogowany']) || ($_SESSION['zalogowany']==false))
 	echo '<a href="enter.php">Zaloguj się lub zarejestruj</a>, żeby zagrać przez sieć';
-	else	
+	else
 	echo '<div id="login"><a href="account.php" title="Ustawienia profilu">'.$_SESSION['login'].'</a></div><div class="user"><a href="account.php#games">rozgrywki: '.$_SESSION['games'].'</a></div><div class="user"><a href="account.php#challenges">wyzwania: '.$_SESSION['challenges'].'</a></div><div class="user"><a href="logout.php">wyloguj</a></div> <div class="empty"></div>';
 ?>
 
 	</div>
 	<div id="header">
 	<h1>Hnefatafl</h1>
+
+<?php
+	if ($_SESSION['id']==$_GET['id'])
+	echo '<h6>Podgląd twojego profilu</h6>';
+ ?>
 	</div>
-	
+
 	<div id="bar">
 		<a href="index.php"><div class="menu">Zagraj przy jednym komputerze</div></a>
 		<a href="rules.php"><div class="menu">Zasady</div></a>
@@ -92,31 +104,31 @@
 		<div class="empty"></div>
 	</div>
 	<div id="content">
-	
+
 <?php
-	
+
 	if (isset($_SESSION['message']))
 	{
 		echo '<div class="message">'.$_SESSION['message'].'</div>';
 		unset($_SESSION['message']);
 	}
-	
+
 	if (!isset($_SESSION['zalogowany']) || ($_SESSION['zalogowany']==false))
 	echo '<a href="enter.php"><div class="interakcja"><img src="img/miecze2.png"/><br/>Zaloguj się lub zarejestruj, by rzucić wyzwanie użytkownikowi '.$user['login'].'</div></a>';
-	else {
+	else if ($_SESSION['id']!=$_GET['id'])	{
 		echo '<div class="interakcja" id="challenge" onclick="show_form()"><img src="img/miecze2.png"/><br/>Rzuć wyzwanie użytkownikowi '.$user['login'].'</div>';
 		}
-	
+
 	echo '<h2>'.$user['login'].'</h2>';
 	echo '<span style="color: ';
 	if ($user['online']) echo '#00CC00;">online';
-	else echo '#FF6666;">offline'; 
+	else echo '#FF6666;">offline';
 	echo '</span>';
 	echo "<p><b>Data rejestracji</b>: ".$user['joined']."</p>";
 	echo "<p><b>Ostatnia wizyta</b>: ".$user['last_visit']."</p>";
-	
+
 	echo "<br/><hr/></br>";
-	
+
 	$result = @$polaczenie->query("SELECT * from games WHERE (id_black=".$id." OR id_white=".$id.") AND date_finish!='0000-00-00 00:00:00' ORDER BY date_finish DESC");
 	echo "<h3>Rozegrane partie</h3>";
 	if ($result->num_rows>0)
@@ -127,7 +139,7 @@ echo<<<END
 			<td><h4>Data</h4></td><td><h4>Przeciwnik</h4></td><td><h4>Wynik</h4></td>
 		</tr>
 END;
-	
+
 	for ($i=0; $i<$result->num_rows; $i++)
 	{
 		$row = $result->fetch_assoc();
@@ -156,7 +168,7 @@ END;
 		else echo "Przegrana";
 		echo "</td></tr>";
 	}
-	
+
 	echo "</table>";
 	}
 	else echo "Brak wyników do wyświetlenia";
@@ -164,9 +176,9 @@ END;
 	unset($_SESSION['message']);
 
 ?>
-	
+
 	</div>
-	
+
 	<div id="footer">napisane przez Pyrę dla ludzi / written by Potato for people</div>
 
 </div>

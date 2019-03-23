@@ -23,6 +23,8 @@
 				$_SESSION['challenges']=$rezultat->num_rows;
 				$rezultat = @$polaczenie->query("SELECT id FROM games WHERE (id_black='".$_SESSION['id']."' OR id_white='".$_SESSION['id']."') AND date_finish='0000-00-00 00:00:00'");
 				$_SESSION['games']=$rezultat->num_rows;
+				$rezultat=$rezultat->fetch_assoc();
+				if ($_SESSION['games']==1) $_SESSION['gameid']=$rezultat['id'];
 				@$polaczenie->query("UPDATE users SET last_visit=CURRENT_TIME, online=1 WHERE id=".$_SESSION['id']);
 				$_SESSION['zalogowany']=true;
 				header('Location: account.php');
