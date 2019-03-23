@@ -30,12 +30,12 @@ var board = new Array(11);
 
 function rysuj_plansze()
 {
-	document.getElementById("current_player").innerHTML = "koniec gry";
-	
+	$("#current_player").html("koniec gry");
+
 	document.getElementById("side_1").innerHTML = "";
 	document.getElementById("side_0").innerHTML = "";
 	var plansza = "";
-	
+
 	for (i=0; i<11; i++)
 	{
 		for (j=0; j<11; j++)
@@ -47,40 +47,40 @@ function rysuj_plansze()
 				plansza = plansza + ' style="'+style_x+'"';
 			plansza = plansza + '></div>';
 		}
-		
+
 		plansza += '<div class="empty"></div>';
 	}
-	
+
 
 	document.getElementById("board").innerHTML = plansza;
 
-	
+
 	rozstaw_figury();
 }
 
 /**************************** rozstawianie figur *****************************************/
 
 function rozstaw_figury()
-{	
+{
 //legenda: 0 = pole jest puste; 1 = na polu stoi król; 2 = na polu stoi obrońca króla; 3 = na polu stoi buntownik;
 	zbite = [0, 0];
-			
+
 	for (i=0; i<11; i++)
 	{
 		board[i] = new Array(11);
 
 		for (j=0; j<11; j++)
-		{	
+		{
 			board[i][j] = new Field(i, j, 0);
 		}
 	}
-		
+
 	x = white[0][0];
 	y = white[0][1];
 	board[x][y].set(1);
 
 	for (i=1; i<13; i++)
-	{	
+	{
 		if (white[i][0]+white[i][1])
 		{
 			x = white[i][0];
@@ -89,9 +89,9 @@ function rozstaw_figury()
 		}
 		else zbite[1]++;
 	}
-		
+
 	for (i=0; i<24; i++)
-	{	
+	{
 		if (black[i][0]+black[i][1])
 		{
 			x = black[i][0];
@@ -100,21 +100,21 @@ function rozstaw_figury()
 		}
 		else zbite[0]++;
 	}
-	
+
 	var side="";
 	for (i=zbite[0]; i>0; i--)
 	{
 		side += url[2];
 	}
 	document.getElementById("side_0").innerHTML = side;
-	
+
 	var side="";
 	for (i=zbite[1]; i>0; i--)
 	{
 		side += url[1];
 	}
 	document.getElementById("side_1").innerHTML = side;
-	
+
 	alert("Koniec gry!");
 	xml.open('GET', 'close_game.php?game='+game, true);
 	xml.send(null);

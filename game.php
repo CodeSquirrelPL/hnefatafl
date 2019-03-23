@@ -14,7 +14,7 @@
 		exit();
 	}
 
-	require_once "connect.php";
+	require_once "php/functions/connect.php";
 
 	$polaczenie = @new mysqli($host, $db_user, $db_password, $db_name);
 
@@ -68,6 +68,8 @@
 	}
 
 	$script="";
+
+	//rozstawianie figur w tablicy
 
 	if ($game['setting']!=0)
 	{
@@ -133,6 +135,7 @@
 	<meta name="keywords" content="hnefatafl, szachy wikingów, wikingowie, szachy" />
 
 	<link rel="stylesheet" href="style.css" type="text/css" />
+	<script src="extras/jquery.js"></script>
 	<?php echo '<script>'.$script.'	if (typeof XMLHttpRequest == "undefined") {
     XMLHttpRequest = function() {
         //IE wykorzystuje biblioteki ActiveX do tworzenia obiektu XMLHttpRequest

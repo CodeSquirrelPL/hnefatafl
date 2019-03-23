@@ -1,4 +1,4 @@
-var zbite = new Array(2);
+var zbite = new Array(2);	//licznik zbitych pionków - zbite[0]: czarne; zbite[1]: białe
 var i, j, x, y;
 var style_throne = "background-image: url(img/throne.png)";
 var style_x = "background-image: url(img/x.png)";
@@ -20,48 +20,48 @@ function Field(x, y, counter)
 
 Field.prototype.ableCounter = function()
 {
-	document.getElementById(this.id).setAttribute("class", "square able");
-	document.getElementById(this.id).setAttribute("onclick", "board["+this.x+"]["+this.y+"].chosing()");
+	$('#'+this.id).attr("class", "square able");
+	$('#'+this.id).attr("onclick", "board["+this.x+"]["+this.y+"].chosing()");
 };
 
 Field.prototype.ableField = function()
 {
-	document.getElementById(this.id).setAttribute("class", "square able");
-	document.getElementById(this.id).setAttribute("onclick", "moving("+this.x+", "+this.y+")");
+	$('#'+this.id).attr("class", "square able");
+	$('#'+this.id).attr("onclick", "moving("+this.x+", "+this.y+")");
 };
 
 Field.prototype.notAble = function()
 {
-	document.getElementById(this.id).setAttribute("class", "square");
-	document.getElementById(this.id).setAttribute("onclick", "");
+	$('#'+this.id).attr("class", "square");
+	$('#'+this.id).attr("onclick", "");
 };
 
 Field.prototype.abilityCounter = function()
-{	
+{
 	if (this.whoseCounter()==color+1 && color==move%2 && oneoneone(board[this.x-oneoneone(this.x)][this.y].value)+oneoneone(board[this.x+oneone(this.x)][this.y].value)+oneoneone(board[this.x][this.y-oneoneone(this.y)].value)+oneoneone(board[this.x][this.y+oneone(this.y)].value)+this.ifThrone() < 4)
-	{	
+	{
 		this.ableCounter();
-	}	
-	else 
+	}
+	else
 	{
 		this.notAble();
 	}
 };
 
 Field.prototype.chosing = function()
-{	
+{
 	x1 = this.x;
 	y1 = this.y;
-	document.getElementById(this.id).setAttribute("class", "square chosen");
-	document.getElementById(this.id).setAttribute("onclick", "moving("+this.x+", "+this.y+")");
+	$('#'+this.id).attr("class", "square chosen");
+	$('#'+this.id).attr("onclick", "moving("+this.x+", "+this.y+")");
 };
 
 Field.prototype.set = function(counter)
 {
 	this.value = counter;
 	if (this.value!=0)
-	document.getElementById(this.id).innerHTML = url[counter-1];
-	else document.getElementById(this.id).innerHTML ="";
+	$('#'+this.id).html(url[counter-1]);
+	else $('#'+this.id).html("");
 };
 
 Field.prototype.whoseCounter = function() //0 - puste pole, 1 - czarne (zaczynają), 2 - białe
@@ -90,12 +90,12 @@ function rysuj_plansze()
 {
 	if (color==move%2) {txt= " - twój ruch";}
 	else {txt = " - odśwież stronę (F5), żeby sprawdzić, czy wykonał_a już ruch";}
-	document.getElementById("current_player").innerHTML = players[move%2]+txt;
-	
-	document.getElementById("side_1").innerHTML = "";
-	document.getElementById("side_0").innerHTML = "";
+	$('#current_player').html(players[move%2]+txt);
+
+	$('#side_1').html("");
+	$('#side_0').html("");
 	var plansza = "";
-	
+
 	for (i=0; i<11; i++)
 	{
 		for (j=0; j<11; j++)
@@ -107,41 +107,41 @@ function rysuj_plansze()
 				plansza = plansza + ' style="'+style_x+'"';
 			plansza = plansza + ' onmouseover="ability('+j+', '+i+')"></div>';
 		}
-		
+
 		plansza += '<div class="empty"></div>';
 	}
-	
+
 	plansza += "<p><a href='yielding.php?game=" + game + "'><button>poddaj się</button></a></p>";
 
-	document.getElementById("board").innerHTML = plansza;
+	$('#'+"board").html(plansza);
 
-	
+
 	rozstaw_figury();
 }
 
 /**************************** rozstawianie figur *****************************************/
 
 function rozstaw_figury()
-{	
+{
 //legenda: 0 = pole jest puste; 1 = na polu stoi król; 2 = na polu stoi obrońca króla; 3 = na polu stoi buntownik;
 	zbite = [0, 0];
-			
+
 	for (i=0; i<11; i++)
 	{
 		board[i] = new Array(11);
 
 		for (j=0; j<11; j++)
-		{	
+		{
 			board[i][j] = new Field(i, j, 0);
 		}
 	}
-		
+
 	x = white[0][0];
 	y = white[0][1];
 	board[x][y].set(1);
 
 	for (i=1; i<13; i++)
-	{	
+	{
 		if (white[i][0]+white[i][1])
 		{
 			x = white[i][0];
@@ -150,9 +150,9 @@ function rozstaw_figury()
 		}
 		else zbite[1]++;
 	}
-		
+
 	for (i=0; i<24; i++)
-	{	
+	{
 		if (black[i][0]+black[i][1])
 		{
 			x = black[i][0];
@@ -161,20 +161,20 @@ function rozstaw_figury()
 		}
 		else zbite[0]++;
 	}
-	
+
 	var side="";
 	for (i=zbite[0]; i>0; i--)
 	{
 		side += url[2];
 	}
-	document.getElementById("side_0").innerHTML = side;
-	
+	$('#'+"side_0").html(side);
+
 	var side="";
 	for (i=zbite[1]; i>0; i--)
 	{
 		side += url[1];
 	}
-	document.getElementById("side_1").innerHTML = side;
+	$('#'+"side_1").html(side);
 }
 
 /**************************** funkcje ***********************************/
@@ -199,19 +199,19 @@ function ability(x, y)
 	else ability_fields(x, y);
 }
 
-function ability_fields(x, y)
+function ability_fields(x, y) //sprawdzanie, czy na polu można postawić aktywnego pionka
 {
 	if (x==x1 && y==y1)
 		{
 			return 0;
 		}
-	
-	if (board[x1][y1].value!=1 && ((x%10==0 && y%10==0) || (x==5 && y==5)))
+
+	if (board[x1][y1].value!=1 && ((x%10==0 && y%10==0) || (x==5 && y==5))) //jeśli pionek nie jest królem, a miejsce jest tronem
 		{
 			board[x][y].notAble();
 			return 0;
 		}
-	
+
 	if (x1==x)
 	{
 		if (x==5 && board[x1][y1].value!=1 && Math.max(y1, y)>5 && Math.min(y1, y)<5)
@@ -219,7 +219,7 @@ function ability_fields(x, y)
 			board[x][y].notAble();
 			return 0;
 		}
-		
+
 		if (y>y1)
 			for (i=y-y1; i>0; i--)
 		{
@@ -246,11 +246,11 @@ function ability_fields(x, y)
 				board[x][y].notAble();
 				return 0;
 			}
-		
+
 		if (x>x1)
 		for (i=x-x1; i>0; i--)
 		{
-			if (board[x1+i][y].value) 
+			if (board[x1+i][y].value)
 			{
 				board[x][y].notAble();
 				return 0;
@@ -276,31 +276,33 @@ function ability_fields(x, y)
 function moving(x, y)
 {
 	if (x1==0 && y1==0) return 0;
-	
+
 	if (x1==x && y1==y)
-	{	
+	{
 		board[x][y].ableCounter();
 		x1=0;
 		y1=0;
 		return 0;
 	}
-	
-	xml.open('GET', "game_send_move.php?a="+(y1*11+x1)+"&b="+(y*11+x)+"&counter="+board[x1][y1].value+"&setting="+setting+"&game="+game, true);
+
+	xml.open('GET', "game_send_move.php?a="+(y1*11+x1)+"&b="+(y*11+x)+"&counter="+board[x1][y1].value+"&setting="+setting+"&game="+game, false);
 	xml.send(null);
-	
+
+
 	board[x][y].set(board[x1][y1].value);
 	board[x1][y1].set(0);
 	board[x1][y1].notAble();
 	x1=0;
 	y1=0;
 	if (board[x][y].value==1) end(x, y);
-	if_striking(x, y);	
+	if_striking(x, y);
 	move++;
 	var txt="kuku na muniu";
 	if (color==move%2) {txt= " - twój ruch";}
 	else {txt = " - odśwież stronę (F5), żeby sprawdzić, czy wykonał_a już ruch";}
-	document.getElementById("current_player").innerHTML = players[move%2]+txt;
-	
+	$('#'+"current_player").html(players[move%2]+txt);
+
+
 }
 
 /**************************** bicie ***********************************/
@@ -326,22 +328,29 @@ function striking(x, y)
 		{
 			side += url[move%2+1];
 		}
-		document.getElementById("side_"+(move+1)%2).innerHTML = side;
-		xml.open('GET', "game_send_striking.php?where="+(y*11+x)+"&counter="+board[x][y].value+"&setting="+setting, true);
+		$('#'+"side_"+(move+1)%2).html(side);
+		xml.open('GET', "game_send_striking.php?where="+(y*11+x)+"&counter="+board[x][y].value+"&setting="+setting, false);
 		xml.send(null);
 		board[x][y].set(0);
+		end(x,y);
 }
 
 /**************************** kończenie gry ***********************************/
 
-function end(x, y)	//przyjmuje położenie króla
-{	
-	if (board[x][y].value!=1) return 0;
-	if ((board[x-oneoneone(x)][y].value)%2+(board[x+oneone(x)][y].value)%2+(board[x][y-oneoneone(y)].value)%2+(board[x][y+oneone(y)].value)%2 == 4)
+function end(x, y)	//przyjmuje położenie króla; zwraca 0, jeśli gra nie jest zakończona
+{
+	if (board[x][y].value!=1)	//jeśli przyjęte parametry nie są adresem króla
+	{
+		if (zbite[0]>23) var winner = id_white;
+		else {if (zbite[1]>11) var winner = id_black;
+		else return 0;}
+	}
+	else if ((board[x-oneoneone(x)][y].value)%2+(board[x+oneone(x)][y].value)%2+(board[x][y-oneoneone(y)].value)%2+(board[x][y+oneone(y)].value)%2 == 4)
 	{	var winner = id_black;	}
 	else if (x%10==0 && y%10==0)
 	{	var winner = id_white;	}
 	else {	return 0;	}
+
 	xml.open('GET', 'game_end.php?game='+game+'&winner='+winner+'&setting='+setting, true);
 	xml.send(null);
 	for (x=0; x<11; x++)
@@ -349,11 +358,11 @@ function end(x, y)	//przyjmuje położenie króla
 		for (y=0; y<11; y++)
 		{
 			board[x][y].notAble();
-			document.getElementById(x+"x"+y).setAttribute("onmouseover", "");
+			$('#'+x+"x"+y).attr("onmouseover", "");
 		}
 	}
-	
+
+	$('#current_player').html("Gra zakończona. Zwyciężył(a) "+players[winner]);
 	alert ('game over');
-	
-	
+
 }
