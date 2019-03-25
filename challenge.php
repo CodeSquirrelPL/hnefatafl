@@ -10,7 +10,7 @@
 	}
 
 
-	$result = @$polaczenie->query(sprintf("SELECT id FROM challenges WHERE challenging='%s' AND challenged='%s'", $_SESSION['id'], $_GET['id']));
+	$result = @$polaczenie->query(sprintf("SELECT id FROM challenges WHERE received='0000-00-00 00:00:00' AND ((challenging='%s' AND challenged='%s') OR (challenging='%s' AND challenged='%s'))", $_SESSION['id'], $_GET['id'], $_GET['id'], $_SESSION['id']));
 
 	$result = $result->num_rows;
 

@@ -296,6 +296,12 @@ margin: auto;
 	cursor: pointer;
 }
 
+.inactive
+{
+	padding: 10px;
+	opacity: 0.2;
+}
+
 .message
 {
 	background-color: #99FF66;

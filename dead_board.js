@@ -115,7 +115,7 @@ function rozstaw_figury()
 	}
 	document.getElementById("side_1").innerHTML = side;
 
-	alert("Koniec gry!");
+	//alert("Koniec gry!");
 	xml.open('GET', 'close_game.php?game='+game, true);
 	xml.send(null);
 }

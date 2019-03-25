@@ -28,11 +28,12 @@
 	$game = $result->fetch_assoc();
 	$result->free_result();
 
+/*
 	if ($game['date_finish']!='0000-00-00 00:00:00')
 	{
 		header('Location: user.php');
 		exit();
-	}
+	}	*/
 
 
 	$rezultat = @$polaczenie->query("SELECT id FROM challenges WHERE challenged=".$_SESSION['id']." AND received='0000-00-00 00:00:00'");
