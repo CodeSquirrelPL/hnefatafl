@@ -287,7 +287,7 @@ function moving(x, y)
 		return 0;
 	}
 
-	xml.open('GET', "game_send_move.php?a="+(y1*11+x1)+"&b="+(y*11+x)+"&counter="+board[x1][y1].value+"&setting="+setting+"&game="+game, false);
+	xml.open('GET', "php/ajax/game_send_move.php?a="+(y1*11+x1)+"&b="+(y*11+x)+"&counter="+board[x1][y1].value+"&setting="+setting+"&game="+game, false);
 	xml.send(null);
 
 

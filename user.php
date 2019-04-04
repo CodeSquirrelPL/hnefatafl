@@ -22,7 +22,12 @@
 	//{header('Location: pyra.php'); exit();}
 
 	$user = @$polaczenie->query(sprintf("SELECT * FROM users WHERE id='%s'", $id));
+	if ($user->num_rows==0)	{
+		echo "Użytkownik o podanym id nie istnieje.";
+		exit();
+	}
 	$user = $user->fetch_assoc();
+
 
 	if (isset($_SESSION['zalogowany']))
 	{

@@ -22,8 +22,19 @@
 
 	<link rel="stylesheet" href="style.css" type="text/css" />
 
-	<script src="js/account.js"></script>
+	<script>	if (typeof XMLHttpRequest == "undefined") {
+		XMLHttpRequest = function() {
+				//IE wykorzystuje biblioteki ActiveX do tworzenia obiektu XMLHttpRequest
+				return new ActiveXObject(
+						//IE5 używa innego obektu XMLHTTP niż IE6 i wyższe
+						navigator.userAgent.indexOf("MSIE 5") >=0 ? "Microsoft.XMLHTTP" : "Msxml2.XMLHTTP"
+				);
+		}
+}</script>
+
 	<script src="extras/jquery.js"></script>
+	<script src="js/account.js"></script>
+
 
 </head>
 
@@ -138,7 +149,7 @@ END;
 			else if ($row['colors']=="black") echo "czarne są twoje";
 			else echo "losowy";
 			echo '</td>';
-			echo '<td><a href="nowa_gra.php?challenge='.$row['id'].'"><button>Przyjmij</button></a> | <button>Odrzuć</button>';
+			echo '<td><a href="nowa_gra.php?challenge='.$row['id'].'"><button>Przyjmij</button></a> | <button id="reject">Odrzuć</button>';
 			echo "</td></tr>";
 		}
 

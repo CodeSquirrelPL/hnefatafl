@@ -2,10 +2,18 @@ var result = "";
 var oldPassword;
 var newPassword;
 var newEmail;
-function zxc()
+var xml = new XMLHttpRequest();
+
+function zxc()  //onload
 {
+  $("#reject").attr("onclick", "rejectChallenge()");
+}
+
+function rejectChallenge()  {
+  alert("zxc");
+  xml.open('GET', 'game_end.php?game='+game+'&winner='+winner+'&setting='+setting, true);
+	xml.send(null);
   return 0;
-    //$("#emailButton").attr('onclick', 'validatePasswdForm(passwd_form)');
 }
 
 function data(label, value, box) {
