@@ -1,7 +1,13 @@
 var moves = new Array();
 
-function countMoves(player) {
+function aiMove() {
+  countMoves(aiColor);
+  randomMove();
+  //console.log("wykonuję ruch: "+move);
+  moves=0;
+}
 
+function countMoves(player) {
 var counters
 //var playerMoves = 0;
 moves = new Array();
@@ -16,10 +22,10 @@ moves = new Array();
     }
   }
 //alert(playerMoves+" "+moves.length);
-alert(moves.length);
+//alert(randomMove());
 }
 
-function movesSinglePiece(x, y, player) {
+function movesSinglePiece(x, y, player) { // sprawdzanie możliwych ruchów dla jednego pionka
   if (board[x][y].value==0) return 0;
   if (player==0 && board[x][y].value!=3) return 0;
   if (player==1 && board[x][y].value!=1 && board[x][y].value!=2) return 0;
@@ -44,10 +50,25 @@ function movesSinglePiece(x, y, player) {
   }
 
   for (a=y+1; a<=10; a++)  { //w dół - oś y, plus
-    if (board[x][y].value!=1 && a%10==0 && y%10==0) {a=10; alert("tron");}
+    if (board[x][y].value!=1 && a%10==0 && y%10==0) {a=10;}
     else if (board[x][a].value==0)  {moves.push([x,y,x,a]); movesCounter++;}
     else a=10;
   }
 
   return movesCounter;
+}
+
+
+function randomMove() {
+
+  var chosenMove;
+
+  var min = Math.ceil(0);
+  var max = Math.floor(moves.length-1);
+  chosenMove =  Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+  console.log(chosenMove+" "+move);
+  //return (moves[chosenMove][0]+","+moves[chosenMove][1]+" -> "+moves[chosenMove][2]+","+moves[chosenMove][3]);
+  x1=moves[chosenMove][0];
+  y1=moves[chosenMove][1];
+  moving(moves[chosenMove][2], moves[chosenMove][3]);
 }

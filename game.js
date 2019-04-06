@@ -1,11 +1,11 @@
-var zbite = [0, 0];
+var zbite = [0, 0]; //które jest które? czarne 0, białe 1?
 var i, j, x, y;
 var style_throne = "background-image: url(img/throne.png)";
 var style_x = "background-image: url(img/x.png)";
-var url = ['<img src="img/king.svg" width="60" height="60"/>', '<img src="img/white.svg"  width="60" height="60"/>', '<img src="img/black.svg" width="60" height="60"/>']
+var url = ['<img src="img/king.svg" width="60" height="60"/>', '<img src="img/white.svg"  width="60" height="60"/>', '<img src="img/black.svg" width="60" height="60"/>']	//0 - król, 1 - biały pionek, 2 - czarny pionek
 var move = 0; //zaczynają czarne (jeśli chcesz zmienić, zmodyfikuj funkcję "whose_counter()")
 var x1=0, y1=0;
-var players = ["czarne", "białe"];
+var players = ["czarne", "białe"]; //0 czarne, 1 białe
 
 /**************************** klasa Field *******************************/
 
@@ -37,7 +37,9 @@ Field.prototype.notAble = function()
 
 Field.prototype.abilityCounter = function()
 {
-	if (this.whoseCounter()==move%2+1 && oneoneone(board[this.x-oneoneone(this.x)][this.y].value)+oneoneone(board[this.x+oneone(this.x)][this.y].value)+oneoneone(board[this.x][this.y-oneoneone(this.y)].value)+oneoneone(board[this.x][this.y+oneone(this.y)].value)+this.ifThrone() < 4)
+	if (typeof aiColor!=='undefined' && aiColor!==null && move%2==aiColor) {this.notAble(); return 0;}
+
+	if (this.whoseCounter()==(move%2)+1 && oneoneone(board[this.x-oneoneone(this.x)][this.y].value)+oneoneone(board[this.x+oneone(this.x)][this.y].value)+oneoneone(board[this.x][this.y-oneoneone(this.y)].value)+oneoneone(board[this.x][this.y+oneone(this.y)].value)+this.ifThrone() < 4)
 	{
 		this.ableCounter();
 	}
@@ -67,7 +69,7 @@ Field.prototype.whoseCounter = function() //0 - puste pole, 1 - czarne (zaczynaj
 {
 	if (this.value==0) return 0;
 	if (this.value==3) return 1;
-	else return 2;
+	else if (this.value==2 || this.value==1) return 2;
 };
 
 Field.prototype.ifThrone = function()
@@ -162,7 +164,7 @@ function rozstaw_figury()
 {
 //legenda: 0 = pole jest puste; 1 = na polu stoi król; 2 = na polu stoi obrońca króla; 3 = na polu stoi buntownik;
 	zbite = [0, 0];
-	var move = 0;
+	move = 0;
 
 	for (i=0; i<11; i++)
 	{
@@ -191,6 +193,8 @@ function rozstaw_figury()
 		y = black[i][1];
 		board[x][y].set(3);
 	}
+
+	//console.log("rozstawianie figur. ruch "+move);
 
 }
 
@@ -292,6 +296,7 @@ function ability_fields(x, y)
 
 function moving(x, y)
 {
+	//console.log("zxc"+move);
 	if (x1==0 && y1==0) return 0;
 
 	if (x1==x && y1==y)
@@ -306,10 +311,11 @@ function moving(x, y)
 	board[x1][y1].notAble();
 	x1=0;
 	y1=0;
-	if (board[x][y].value==1) end(x, y);
 	if_striking(x, y);
 	move++;
+	if (board[x][y].value==1) end(x, y);
 	document.getElementById("current_player").innerHTML = players[move%2];
+	if (typeof aiColor!=='undefined' && aiColor!==null && move%2==aiColor && move!=0) aiMove();
 }
 
 /**************************** bicie ***********************************/
@@ -328,14 +334,17 @@ function if_striking(x, y)
 
 function striking(x, y)
 {
+		//jeśli zmienisz tablicę url, zmień tę funkcję
+		//board.value 1 = na polu stoi król; 2 = na polu stoi obrońca króla; 3 = na polu stoi buntownik;
+
 		if (board[x][y].value==1) {end(x,y); return 0};
-		zbite[(move+1)%2]++;
+		zbite[board[x][y].value%2]++;
 		var side="";
-		for (i=zbite[(move+1)%2]; i>0; i--)
+		for (i=zbite[board[x][y].value%2]; i>0; i--)
 		{
-			side += url[move%2+1];
+			side += url[board[x][y].value-1];	//
 		}
-		document.getElementById("side_"+(move+1)%2).innerHTML = side;
+		document.getElementById("side_"+(board[x][y].value-1)%2).innerHTML = side;
 		board[x][y].set(0);
 }
 
@@ -350,5 +359,10 @@ function end(x, y)	//przyjmuje położenie króla
 	{	alert('Król jest bezpieczny. Białe wygrały');	}
 	else {	return 0;	}
 	document.getElementById("board").innerHTML = "";
+	move=0;
+	//console.log("koniec gry");
 	rysuj_plansze();
+	x1=0;
+	y1=0;
+	return 1;
 }

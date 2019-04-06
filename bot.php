@@ -17,6 +17,7 @@
 
 	<link rel="stylesheet" href="style.css" type="text/css" />
 	<script src="game.js"></script>
+	<script src="js/aiGameSettings.js"></script>
 	<script src="js/ai.js"></script>
 </head>
 
