@@ -10,7 +10,7 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Hnefatafl - gorące pośladki</title>
+	<title>Hnefatafl - gorące krzesło</title>
 
 	<meta name="description" content="Hnafatafl - szachy wikingów" />
 	<meta name="keywords" content="hnefatafl, szachy wikingów, wikingowie, szachy" />
@@ -31,7 +31,7 @@
 	</div>
 	<div id="header">
 	<h1>Hnefatafl</h1>
-	<h6>tryb "gorących pośladków"</h6>
+	<h6>tryb "gorące krzesło"</h6>
 	</div>
 
 	<div id="bar">
@@ -65,7 +65,7 @@
 
 </div>
 
-	<div id="footer">napisane przez Pyrę dla ludzi / written by Potato for people</div>
+	<div id="footer">© Copyright 2017-2019 Paulina Filipiak</div>
 
 </div>
 </body>

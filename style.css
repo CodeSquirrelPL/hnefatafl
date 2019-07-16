@@ -21,6 +21,8 @@ body
 	text-align: center;
 }
 
+
+
 h1
 {
 	font-family: 'Norse';
@@ -45,6 +47,11 @@ a:visited
 .notUnderlined
 {
 	text-decoration: none;
+}
+
+li
+{
+	margin: 0px auto;
 }
 
 #userbar
@@ -274,6 +281,8 @@ a:visited
 .example
 {
 margin: auto;
+margin-top: 20px;
+margin-bottom: 20px;
 	text-align: center;
 	width: 190px;
 }

@@ -85,7 +85,7 @@
 
 	<div id="submit"></div>
 
-	<div id="footer">napisane przez Pyrę dla ludzi / written by Potato for people</div>
+	<div id="footer">© Copyright 2017-2019 Paulina Filipiak</div>
 
 </div>
 </body>
