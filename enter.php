@@ -20,8 +20,11 @@
 	<meta name="keywords" content="hnefatafl, szachy wikingów, wikingowie, szachy" />
 
 	<link rel="stylesheet" href="style.css" type="text/css" />
+	<script src="js/komunikaty_rejestracja_pl.js"></script>
+	<script src="js/functions/passEmailValidation.js" type="text/javascript"></script>
 	<script src="js/register.js"></script>
-
+	<script src="js/register.js"></script>
+	<script src="extras/jquery.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -62,6 +65,41 @@
 
 		</br>
 		<hr />
+
+		<h3>Rejestracja</h3>
+
+		<form id="rejestracja" method="POST" action="register.php">
+<?php
+		if (isset($_SESSION['error_login']))
+		echo '<div class="error">'.$_SESSION['error_login'].'</div>';
+?>
+		<h4>Login</h4><!--(może składać się z liter alfabetu łacińskiego, cyfr, kropek, myślników oraz podkreślników, przynajmniej 4, najwyżej 64 znaków)-->
+		<p id="login_msg" class="warning"></p>
+		<input type="text" name="login" id="nick"></input></br>
+<?php
+		if (isset($_SESSION['error_pass']))
+		echo '<div class="error">'.$_SESSION['error_pass'].'</div>';
+		unset ($_SESSION['error_pass']);
+?>
+		<h4>Hasło</h4>
+		<!--musi zawierać małą i dużą literę, cyfrę i być nie krótsze niż 6 znaków-->
+		<p id="pass_msg" class="warning"></p>
+		<input type="password" name="pass1" id="pass1" class="input"></input>
+		<h4>Podaj hasło ponownie</h4>
+		<p id="pass2_msg" class="warning"></p>
+		<input type="password" name="pass2" id="pass2"></input>
+		<h4>Adres e-mail</h4>(opcjonalnie)<!-- - podanie adresu pozwoli na odzyskanie konta po utracie hasła)--></p>
+		<p id="email_msg" class="warning"></p>
+		<input type="email" name="email"></input>
+		<p>Zakładając konto, zgadzasz się na zasady opisane w <a target="_blank" href="terms.php">tym dokumencie</a><!--Uwaga. Ponieważ nie mogę zagwarantować jego bezpieczeństwa, czat w grze nie jest przeznaczony do przesyłania prywatnych czy intymnych informacji. Twoje konto może zostać usunięte po okresie nieobecności dłuższym niż trzy miesiące. Przesyłanie obraźliwych, wulgarnych czy nawołujących do przemocy treści grozi usunięciem konta. Korzystasz z serwisu na własną odpowiedzialność.--></p>
+		<p id="czekaj"></p>
+		</form>
+		<noscript>rejestracja nie jest możliwa, gdyż twoja przeglądarka nie obsługuje JavaScriptu. Włącz obsługę JavaScriptu i odśwież stronę, by się zarejestrować</noscript>
+		<button id="send" onclick='check(rejestracja)'>Załóż konto</button>
+
+	</div>
+
+	<div id="submit"></div>
 
 	</div>
 

@@ -214,19 +214,9 @@ EOL;
 	}
 	else echo <<<EOL
 	<p>Brak adresu e-mail.</p>
-	<button id='email_show' onclick='show_form("email")'>Dodaj adres e-mail</button>
+
 EOL;
 ?>
-
-	<form id="email_form" style="display: none;"  method="POST" action="php/account/changeEmail.php">
-		<p>Wpisz swoje hasło</p>
-		<div id="passMsg"></div>
-		<input id="pass" name="pass" type="password"></input>
-		<p>Wpisz nowy adres email</p>
-		<div id="emailMsg"></div>
-		<input id="email" name="email" type="email"></input>
-		<p><input id="emailButton" type="button" value="Zmień adres e-mail"  onclick="validateEmailForm(email_form)"/></p>
-	</form>
 
 	<?php
 	echo "<p><b>Data rejestracji</b>: ".$result['joined']."</p>";
