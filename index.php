@@ -52,7 +52,7 @@
 	</div>
 
 	<div id="board">
-	<p>Coś się rozjechało - tu powinna być plansza</p>
+	<p>ładowanie planszy...</p>
 	</div>
 
 	<div class="side" id="right">
