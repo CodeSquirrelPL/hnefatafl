@@ -1,3 +1,9 @@
+<?php
+
+	session_start();
+
+?>
+
 <!DOCTYPE HTML>
 <html lang="pl">
 <head>
@@ -15,7 +21,13 @@
 
 <body>
 <div id="container">
+	<div id="userbar">
+	<?php
 
+	require_once "php/functions/userbar.php";
+
+	?>
+	</div>
 	<a href="index.php">
 	<div id="header">
 	<h1>Hnefatafl</h1>
@@ -26,7 +38,6 @@
 	<div id="bar">
 		<a href="index.php"><div class="menu">Graj przy jednym komputerze</div></a>
 		<a href="enter.php"><div class="menu">Graj przez sieć</div></a>
-		<a href="about.php"><div class="menu">O grze</div></a>
 		<div class="empty"></div>
 	</div>
 
