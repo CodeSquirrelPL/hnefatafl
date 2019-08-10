@@ -44,11 +44,15 @@
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Hnefatafl - profil użytkownika <?php echo $user['login'];?></title>
 	<meta name="description" content="Hnafatafl - szachy wikingów" />
 	<meta name="keywords" content="hnefatafl, szachy wikingów, wikingowie, szachy" />
 
-	<link rel="stylesheet" href="style.css" type="text/css" />
+	<link rel="stylesheet" href="css/main.css" type="text/css" />
+<link rel="stylesheet" media="(min-width: 1199px)" href="css/maxi.css" type="text/css" />
+<link rel="stylesheet" media="(max-width: 1200px) and (min-width: 800px)" href="css/midi.css" type="text/css" />
+<link rel="stylesheet" media="(max-width: 800px)" href="css/mini.css" type="text/css" />
 	<script src="extras/jquery.js"></script>
 
 	<?php
@@ -119,17 +123,17 @@
 	}
 
 	if (!isset($_SESSION['zalogowany']) || ($_SESSION['zalogowany']==false))
-	echo '<a href="enter.php"><div class="interakcja"><img src="img/miecze2.png"/><br/>Zaloguj się lub zarejestruj, by rzucić wyzwanie użytkownikowi '.$user['login'].'</div></a>';
+	echo '<a href="enter.php"><div class="bttn"><img src="img/miecze2.png"/><br/>Zaloguj się lub zarejestruj, by rzucić wyzwanie użytkownikowi '.$user['login'].'</div></a>';
 	else if ($_SESSION['id']!=$_GET['id'])	{
 
 
 		$rezultat = @$polaczenie->query("SELECT id FROM challenges WHERE received='0000-00-00 00:00:00' AND challenged=".$_SESSION['id']." AND challenging=".$id);
-		if ($rezultat->num_rows>0) echo '<div class="inactive" id="challenge""><img src="img/miecze2.png"/><br/>Ta osoba rzuciła ci już wyzwanie. Przyjmij je lub odrzuć.</div>';
+		if ($rezultat->num_rows>0) echo '<div class="disabled_bttn" id="challenge""><img src="img/miecze2.png"/><br/>Ta osoba rzuciła ci już wyzwanie. Przyjmij je lub odrzuć.</div>';
 		else {
 
 			$rezultat = @$polaczenie->query("SELECT id FROM challenges WHERE received='0000-00-00 00:00:00' AND challenged=".$id." AND challenging=".$_SESSION['id']);
-			if ($rezultat->num_rows>0) echo '<div class="inactive" id="challenge""><img src="img/miecze2.png"/><br/>Dopóki ta osoba nie przyjmie lub nie odrzuci twojego poprzedniego wyzwania, nie możesz jej wysłać kolejnego.</div>';
-			else echo '<div class="interakcja" id="challenge" onclick="show_form()"><img src="img/miecze2.png"/><br/>Rzuć wyzwanie użytkownikowi '.$user['login'].'</div>';
+			if ($rezultat->num_rows>0) echo '<div class="disabled_bttn" id="challenge""><img src="img/miecze2.png"/><br/>Dopóki ta osoba nie przyjmie lub nie odrzuci twojego poprzedniego wyzwania, nie możesz jej wysłać kolejnego.</div>';
+			else echo '<div class="bttn" id="challenge" onclick="show_form()"><img src="img/miecze2.png"/><br/>Rzuć wyzwanie użytkownikowi '.$user['login'].'</div>';
 		}
 
 		$rezultat->free_result();

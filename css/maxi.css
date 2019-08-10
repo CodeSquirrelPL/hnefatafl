@@ -1,0 +1,180 @@
+	#board
+	{
+		float: left;
+		width:660px;
+		margin-left:auto;
+		margin-right:auto;
+	}
+
+	#userbar
+	{
+		width: 80%;
+		margin: 30px auto 30px auto;
+	}
+
+	#login
+	{
+		float:left;
+		width: 70%;
+	}
+
+	.user
+	{
+		float:left;
+		width: 10%;
+	}
+
+	#header
+	{
+		width: 80%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 40px;
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+
+	#bar
+	{
+		width: 80%;
+		margin-left:auto;
+		margin-right:auto;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	.menu
+	{
+		margin-top: 5px;
+		margin-bottom: 5px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	#info_left
+	{
+		margin-left: 5%;
+		text-align: left;
+		width: 20%;
+	}
+
+	.info
+	{
+		float: left;
+	}
+
+	#player
+	{
+		width: 60%;
+	}
+
+	#info_right
+	{
+		margin-right: 5%;
+		text-align: right;
+		width: 20%;
+	}
+
+	#content
+	{
+		width: 70%;
+		margin-left: 10%;
+		margin-right: 10%;
+		padding: 20px 5% 20px 5%;
+	}
+
+	#game
+	{
+		margin: auto;
+		margin-top: 20px;
+		padding: auto;
+		text-align: center;
+		grid-template-columns: auto 660px auto;
+		grid-template-rows:    repeat(2, auto);
+		grid-template-areas: "player player player" "white board black";
+	}
+
+	#current_player
+	{
+		margin-bottom:15px;
+		width: 660px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.gamepiece_img	{
+		width: 60px;
+	}
+
+	.side_header	{
+		margin-bottom: 10px;
+	}
+
+	.zbite	{
+		margin-top: 20px;
+		padding: 9px;
+	}
+
+	.side
+	{
+		float: left;
+		width: 200px;
+		margin: 30px;
+		margin-top:0;
+	}
+
+	#left	{
+		margin-left: auto;
+	}
+
+	#board
+	{
+		text-align: center;
+		width: 100%;
+		grid-area: board;
+
+		display: grid;
+
+		grid-template-rows:    repeat(11, 60px);
+		grid-template-columns: repeat(11, 60px);
+	}
+/*
+	.square
+	{
+		border: 1px solid gray;
+	}*/
+
+	#right	{
+		margin-right: auto;
+	}
+
+	.square
+	{
+		width: 60px;
+		height: 60px;
+	}
+
+	.square_throne
+	{
+		width: 60px;
+		height: 60px;
+	}
+
+	.square_x
+	{
+		width: 60px;
+		height: 60px;
+	}
+
+	.table
+	{
+		width: 600px;
+	}
+
+	#footer
+	{
+		width: 80%;
+		margin: 40px;
+		margin-right: 10%;
+		margin-left: 10%;
+	}

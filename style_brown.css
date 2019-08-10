@@ -285,12 +285,12 @@ margin: auto;
 	width: 600px;
 }
 
-.interakcja
+.bttn
 {
 	padding: 10px;
 }
 
-.interakcja:hover
+.bttn:hover
 {
 	background-color: #222222;
 	cursor: pointer;

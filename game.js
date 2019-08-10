@@ -1,8 +1,8 @@
 var zbite = [0, 0]; //które jest które? czarne 0, białe 1?
 var i, j, x, y;
-var style_throne = "background-image: url(img/throne.png)";
-var style_x = "background-image: url(img/x.png)";
-var url = ['<img src="img/king.svg" width="60" height="60"/>', '<img src="img/white.svg"  width="60" height="60"/>', '<img src="img/black.svg" width="60" height="60"/>']	//0 - król, 1 - biały pionek, 2 - czarny pionek
+var style_throne = "background-image: url(img/throne.png); background-size: 100% 100%;";
+var style_x = "background-image: url(img/x.png); background-size: 100% 100%;";
+var url = ['<img src="img/king.svg" class="gamepiece_img"/>', '<img src="img/white.svg"  class="gamepiece_img"/>', '<img src="img/black.svg" class="gamepiece_img"/>']	//0 - król, 1 - biały pionek, 2 - czarny pionek
 var move = 0; //zaczynają czarne (jeśli chcesz zmienić, zmodyfikuj funkcję "whose_counter()")
 var x1=0, y1=0;
 var players = ["czarne", "białe"]; //0 czarne, 1 białe
@@ -148,7 +148,7 @@ function rysuj_plansze()
 			plansza = plansza + ' onmouseover="ability('+j+', '+i+')"></div>';
 		}
 
-		plansza += '<div class="empty"></div>';
+
 	}
 
 

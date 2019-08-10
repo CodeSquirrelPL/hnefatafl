@@ -1,0 +1,48 @@
+    #header {
+      padding-top: 3px;
+      padding-bottom: 3px;
+      margin: 15px auto;
+    }
+
+    .menu {
+      padding: 10px 0;
+      font-size: smaller;
+    }
+
+    #game
+    {
+      margin: auto;
+      margin-top: 20px;
+      padding: auto;
+      text-align: center;
+      grid-template-areas: "player" "white" "board" "black";
+    }
+
+    #board
+    {
+    	text-align: center;
+    	grid-area: board;
+      margin: auto;
+    	display: grid;
+    	grid-template-columns: repeat(11, 8.7vmin);
+      grid-template-rows:    repeat(11, 8.7vmin);
+    }
+
+    .side_header {
+      padding-bottom: 4px;
+    }
+
+    .zbite {
+      font-size: smaller;
+      padding: 4px;
+    }
+/*
+    .square
+    {
+    	border: 1px solid gray;
+    }*/
+
+    .gamepiece_img	{
+    	width: 100%;
+    	max-width: 8.7vw;
+    }

@@ -9,13 +9,17 @@
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title>Hnefatafl - gorące krzesło</title>
 
 	<meta name="description" content="Hnafatafl - szachy wikingów" />
 	<meta name="keywords" content="hnefatafl, szachy wikingów, wikingowie, szachy" />
 
-	<link rel="stylesheet" href="style.css" type="text/css" />
+	<link rel="stylesheet" href="css/main.css" type="text/css" />
+	<link rel="stylesheet" media="(min-width: 1199px)" href="css/maxi.css" type="text/css" />
+	<link rel="stylesheet" media="(max-width: 1200px) and (min-width: 800px)" href="css/midi.css" type="text/css" />
+	<link rel="stylesheet" media="(max-width: 800px)" href="css/mini.css" type="text/css" />
 	<script src="game.js"></script>
 
 </head>
