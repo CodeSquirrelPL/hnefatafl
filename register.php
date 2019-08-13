@@ -49,9 +49,10 @@
 
 		if(isset($login) && isset($pass))
 		@$polaczenie->query(sprintf('INSERT INTO users VALUES (NULL,"%s","%s", "","",CURRENT_TIME,CURRENT_TIME,"",1)',  $login, password_hash($pass, PASSWORD_DEFAULT)));
-		$polaczenie->close();
 		$_SESSION['message']="<p>Konto zostało utworzone</p>";
 		$_SESSION['login']=$login;
+		$_SESSION['id']=mysqli_insert_id($polaczenie);
+		$polaczenie->close();
 		$_SESSION['zalogowany']=true;
 		header('Location: account.php');
 

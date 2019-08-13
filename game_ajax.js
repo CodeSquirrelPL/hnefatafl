@@ -1,8 +1,8 @@
 var zbite = new Array(2);	//licznik zbitych pionków - zbite[0]: czarne; zbite[1]: białe
 var i, j, x, y;
-var style_throne = "background-image: url(img/throne.png)";
-var style_x = "background-image: url(img/x.png)";
-var url = ['<img src="img/king.png"/>', '<img src="img/white.png"/>', '<img src="img/black.png"/>']
+var style_throne = "background-image: url(img/throne.png); background-size: 100% 100%";
+var style_x = "background-image: url(img/x.png); background-size: 100% 100%";
+var url = ['<img src="img/king.svg" class="gamepiece_img"/>', '<img src="img/white.svg"  class="gamepiece_img"/>', '<img src="img/black.svg" class="gamepiece_img"/>']
 //var move = 0; //zaczynają czarne (jeśli chcesz zmienić, zmodyfikuj funkcję "whoseCounter()")
 var x1=0, y1=0;
 //var players = ["czarne", "białe"];
@@ -108,7 +108,7 @@ function rysuj_plansze()
 			plansza = plansza + ' onmouseover="ability('+j+', '+i+')"></div>';
 		}
 
-		plansza += '<div class="empty"></div>';
+
 	}
 
 	plansza += "<p><a href='yielding.php?game=" + game + "'><button>poddaj się</button></a></p>";
