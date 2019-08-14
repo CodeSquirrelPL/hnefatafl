@@ -1,34 +1,34 @@
 <?php
 
 	session_start();
-	
+
 	if (!isset($_SESSION['zalogowany']) || ($_SESSION['zalogowany']==false))
 	{
 		header('Location: enter.php');
 		exit();
 	}
-	
+
 	/*if (!isset($_GET['game']))
 	{
 		header('Location: user.php');
 		exit();
 	}*/
-	
-	require_once "connect.php";
-	
+
+	require_once "php/functions/connect.php";
+
 	$polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
-	
+
 		if ($polaczenie->connect_errno!=0)
 	{
 		echo "Error: ".$polaczenie->connect_errno;
 		exit();
 	}
-	
+
 	echo $_GET['a'].' ('.$_GET['counter'].') na '.$_GET['b'].' ustawienie: '.$_GET['setting'].'gra: '.$_GET['game'];
-	
+
 	$result = $polaczenie->query(sprintf("SELECT * FROM settings WHERE id='%s'", $_GET['setting']));
 	$result = $result->fetch_assoc();
-	
+
 	if ($_GET['counter']==3)
 	{
 		for ($i=1; $i<25; $i++)
@@ -41,7 +41,7 @@
 			}
 		}
 	}
-	
+
 	else if ($_GET['counter']==2)
 	{
 		for ($i=1; $i<13; $i++)
@@ -54,7 +54,7 @@
 			}
 		}
 	}
-	
+
 	else if ($_GET['counter']==1)
 	{
 		if ($result['king']==$_GET['a'])
