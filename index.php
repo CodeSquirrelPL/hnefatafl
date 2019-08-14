@@ -20,29 +20,30 @@
 	<link rel="stylesheet" media="(min-width: 1199px)" href="css/maxi.css" type="text/css" />
 	<link rel="stylesheet" media="(max-width: 1200px) and (min-width: 800px)" href="css/midi.css" type="text/css" />
 	<link rel="stylesheet" media="(max-width: 800px)" href="css/mini.css" type="text/css" />
-	<script src="game.js"></script>
+	<script src="js/game.js"></script>
 
 </head>
 
 <body onload="rysuj_plansze()">
 <div id="container">
-	<div id="userbar">
+	<nav id="userbar">
 <?php
 
 	require_once "php/functions/userbar.php";
 
 ?>
-	</div>
-	<div id="header">
+	</nav>
+
+	<header>
 	<h1>Hnefatafl</h1>
 	<h6>tryb "gorące krzesło"</h6>
-	</div>
+	</header>
 
-	<div id="bar">
-		<a href="enter.php"><div class="menu">Graj przez sieć</div></a>
-		<a href="rules.php"><div class="menu">Zasady</div></a>
+	<nav class="menu">
+		<a href="enter.php"><div class="menu__button">Graj przez sieć</div></a>
+		<a href="rules.php"><div class="menu__button">Zasady</div></a>
 		<div class="empty"></div>
-	</div>
+	</nav>
 
 	<div id="game">
 
@@ -68,7 +69,7 @@
 
 </div>
 
-	<div id="footer">© Copyright 2017-2019 Paulina Filipiak</div>
+	<footer>© Copyright 2017-2019 Paulina Filipiak</footer>
 
 </div>
 </body>

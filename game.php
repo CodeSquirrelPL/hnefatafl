@@ -150,8 +150,8 @@
         );
     }
 }</script>';
-	if ($game['winner']==0) echo '<script src="game_ajax.js"></script>';
-	else echo '<script src="dead_board.js"></script>';
+	if ($game['winner']==0) echo '<script src="js/game_ajax.js"></script>';
+	else echo '<script src="js/game_over.js"></script>';
  ?>
 </head>
 
@@ -160,25 +160,25 @@ if ($game['setting']!=0) echo '<body onload="rysuj_plansze()" onunload="alert'."
 else echo '<body>';
 ?>
 <div id="container">
-<div id="userbar">
+<nav id="userbar">
 
 <?php
 
 	require_once "php/functions/userbar.php";
 
 ?>
-	</div>
-	<div id="header">
+	</nav>
+	<header>
 	<h1>Hnefatafl</h1>
 	<h6>gra z <?php echo '<a href="user.php?id='.$game['adversary_id'].'">'.$game['adversary'].'</a>'; ?></h6>
-	</div>
+	</header>
 
-	<div id="bar">
-		<a href="enter.php"><div class="menu">Graj przez sieć</div></a>
-		<a href="rules.php"><div class="menu">Zasady</div></a>
-		
+	<nav class="menu">
+		<a href="enter.php"><div class="menu__button">Graj przez sieć</div></a>
+		<a href="rules.php"><div class="menu__button">Zasady</div></a>
+
 		<div class="empty"></div>
-	</div>
+	</nav>
 
 	<div id="game">
 
@@ -206,7 +206,7 @@ else echo '<body>';
 
 </div>
 
-	<div id="footer">© Copyright 2017-2019 Paulina Filipiak</div>
+	<footer>© Copyright 2017-2019 Paulina Filipiak</footer>
 
 </div>
 </body>

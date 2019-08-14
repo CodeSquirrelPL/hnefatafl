@@ -1,11 +1,12 @@
-    #header {
+    header {
       padding-top: 3px;
       padding-bottom: 3px;
       margin: 15px auto;
     }
 
-    .menu {
+    .menu__button {
       padding: 10px 0;
+      height: 100%;
       font-size: smaller;
     }
 
@@ -45,4 +46,9 @@
     .gamepiece_img	{
     	width: 100%;
     	max-width: 8.7vw;
+    }
+
+    #content {
+      padding: 3vw;
+      margin: 10px 0;
     }

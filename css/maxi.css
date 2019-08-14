@@ -24,7 +24,7 @@
 		width: 10%;
 	}
 
-	#header
+	header
 	{
 		width: 80%;
 		margin-left: auto;
@@ -34,7 +34,7 @@
 		padding-bottom: 15px;
 	}
 
-	#bar
+	.menu
 	{
 		width: 80%;
 		margin-left:auto;
@@ -43,7 +43,7 @@
 		margin-bottom: 10px;
 	}
 
-	.menu
+	.menu__button
 	{
 		margin-top: 5px;
 		margin-bottom: 5px;
@@ -171,7 +171,7 @@
 		width: 600px;
 	}
 
-	#footer
+	footer
 	{
 		width: 80%;
 		margin: 40px;

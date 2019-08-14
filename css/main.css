@@ -81,19 +81,19 @@ li
 	max-width: 100%;
 }
 
-#header
+header
 {
 	background-color: #404040;
 	color: white;
 	text-shadow: 1px 1px 2px black;
 }
 
-#bar
+.menu
 {
 	background-color: #777777;
 }
 
-.menu
+.menu__button
 {
 	cursor: pointer;
 	color: #191919;
@@ -104,13 +104,13 @@ li
 	margin-right: 1%;
 }
 
-.menu:hover
+.menu__button:hover
 {
 	background-color: #AAAAAA;
 	box-shadow: 0 0 2px 3px #666666;
 }
 
-.menu:active
+.menu__button:active
 {
 	background-color: #AAAAAA;
 	box-shadow: 0 0 2px 3px #666666;
@@ -159,9 +159,9 @@ li
 
 .zbite
 {
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	background-color: #232323;
-	
+
 }
 
 #left	{
@@ -261,7 +261,7 @@ li
 	margin: 30px;
 }
 
-#footer
+footer
 {
 	padding-top: 5px;
 	padding-bottom: 5px;

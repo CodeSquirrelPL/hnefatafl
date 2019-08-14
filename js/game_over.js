@@ -1,8 +1,8 @@
 var zbite = new Array(2);
 var i, j, x, y;
-var style_throne = "background-image: url(img/throne.png)";
-var style_x = "background-image: url(img/x.png)";
-var url = ['<img src="img/king.png"/>', '<img src="img/white.png"/>', '<img src="img/black.png"/>']
+var style_throne = "background-image: url(img/throne.png); background-size: 100%";
+var style_x = "background-image: url(img/x.png); background-size: 100%";
+var url = ['<img src="img/king.svg" class="gamepiece_img"/>', '<img src="img/white.svg"  class="gamepiece_img"/>', '<img src="img/black.svg" class="gamepiece_img"/>'];
 var xml = new XMLHttpRequest();
 
 /**************************** klasa Field *******************************/
@@ -48,7 +48,7 @@ function rysuj_plansze()
 			plansza = plansza + '></div>';
 		}
 
-		plansza += '<div class="empty"></div>';
+
 	}
 
 

@@ -88,7 +88,7 @@
 
 <body>
 <div id="container">
-<div id="userbar">
+<nav id="userbar">
 <?php
 	if (!isset($_SESSION['zalogowany']) || ($_SESSION['zalogowany']==false))
 	echo '<a href="enter.php">Zaloguj się lub zarejestruj</a>, żeby zagrać przez sieć';
@@ -96,22 +96,22 @@
 	echo '<div id="login"><a href="account.php" title="Ustawienia profilu">'.$_SESSION['login'].'</a></div><div class="user"><a href="account.php#games">rozgrywki: '.$_SESSION['games'].'</a></div><div class="user"><a href="account.php#challenges">wyzwania: '.$_SESSION['challenges'].'</a></div><div class="user"><a href="logout.php">wyloguj</a></div> <div class="empty"></div>';
 ?>
 
-	</div>
-	<div id="header">
+	</nav>
+	<header>
 	<h1>Hnefatafl</h1>
 
 <?php
 	if ($_SESSION['id']==$_GET['id'])
 	echo '<h6>Podgląd twojego profilu</h6>';
  ?>
-	</div>
+	</header>
 
-	<div id="bar">
-		<a href="index.php"><div class="menu">Zagraj przy jednym komputerze</div></a>
-		<a href="rules.php"><div class="menu">Zasady</div></a>
-		
+	<nav class="menu">
+		<a href="index.php"><div class="menu__button">Zagraj przy jednym komputerze</div></a>
+		<a href="rules.php"><div class="menu__button">Zasady</div></a>
+
 		<div class="empty"></div>
-	</div>
+	</nav>
 	<div id="content">
 
 <?php
@@ -204,7 +204,7 @@ END;
 
 	</div>
 
-	<div id="footer">© Copyright 2017-2019 Paulina Filipiak</div>
+	<footer>© Copyright 2017-2019 Paulina Filipiak</footer>
 
 </div>
 </body>

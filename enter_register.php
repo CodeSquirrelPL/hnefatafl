@@ -1,7 +1,7 @@
 <?php
 
 	session_start();
-	
+
 	if ((isset($_SESSION['zalogowany'])) && ($_SESSION['zalogowany']==true))
 	{
 		header('Location: account.php');
@@ -14,39 +14,39 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-	
+
 	<title>Hnefatafl - logowanie</title>
-	
+
 	<meta name="description" content="Hnafatafl - szachy wikingów" />
 	<meta name="keywords" content="hnefatafl, szachy wikingów, wikingowie, szachy" />
-	
+
 	<link rel="stylesheet" href="css/main.css" type="text/css" />
 <link rel="stylesheet" media="(min-width: 1199px)" href="css/maxi.css" type="text/css" />
 <link rel="stylesheet" media="(max-width: 1200px) and (min-width: 800px)" href="css/midi.css" type="text/css" />
 <link rel="stylesheet" media="(max-width: 800px)" href="css/mini.css" type="text/css" />
 	<script src="register.js"></script>
-	
+
 </head>
 
 <body>
 <div id="container">
 	<!--
-	<div id="userbar">
+	<nav id="userbar">
 		<a href="login.php">Zaloguj się</a> lub <a href="register.php">zarejestruj</a>, żeby zagrać przez sieć
-	</div>
+	</nav>
 	-->
-	<div id="header">
+	<header>
 	<h1>Hnefatafl</h1>
 	<h6>logowanie</h6>
-	</div>
-	
-	<div id="bar">
-		<a href="index.php"><div class="menu">Zagraj przy jednym komputerze</div></a>
-		<a href="rules.php"><div class="menu">Zasady</div></a>
-		
+	</header>
+
+	<nav class="menu">
+		<a href="index.php"><div class="menu__button">Zagraj przy jednym komputerze</div></a>
+		<a href="rules.php"><div class="menu__button">Zasady</div></a>
+
 		<div class="empty"></div>
-	</div>
-	
+	</nav>
+
 	<div id="content">
 		Aby zagrać przez sieć, zaloguj się lub zarejestruj
 		</br></br>
@@ -63,7 +63,7 @@
 			<input type="password" name="pass"></input></p>
 			<input type="submit" value="Zaloguj"></input>
 		</form>
-		
+
 		</br>
 		<hr />
 		<h4>Nie masz jeszcze konta? Załóż je tutaj</h4>
@@ -82,13 +82,13 @@
 			<input type="text" name="pass"></input></p>
 			<input type="submit" value="Załóż konto"></input>
 		</form>
-		
+
 		</br>
 		<hr />
 		</br>
-	</div>	
-	
-	<div id="footer">© Copyright 2017-2019 Paulina Filipiak</div>
+	</div>
+
+	<footer>© Copyright 2017-2019 Paulina Filipiak</footer>
 
 </div>
 

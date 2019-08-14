@@ -34,20 +34,20 @@
 <body>
 <div id="container">
 	<!--
-	<div id="userbar">
+	<nav id="userbar">
 		<a href="login.php">Zaloguj się</a> lub <a href="register.php">zarejestruj</a>, żeby zagrać przez sieć
-	</div>
+	</nav>
 	-->
-	<div id="header">
+	<header>
 	<h1>Hnefatafl</h1>
 	<h6>logowanie</h6>
-	</div>
+	</header>
 
-	<div id="bar">
-		<a href="index.php"><div class="menu">Zagraj przy jednym komputerze</div></a>
-		<a href="rules.php"><div class="menu">Zasady</div></a>
+	<nav class="menu">
+		<a href="index.php"><div class="menu__button">Zagraj przy jednym komputerze</div></a>
+		<a href="rules.php"><div class="menu__button">Zasady</div></a>
 		<div class="empty"></div>
-	</div>
+	</nav>
 
 	<div id="content">
 		Aby zagrać przez sieć, zaloguj się lub zarejestruj
@@ -107,7 +107,7 @@
 
 	</div>
 
-	<div id="footer">© Copyright 2017-2019 Paulina Filipiak</div>
+	<footer>© Copyright 2017-2019 Paulina Filipiak</footer>
 
 </div>
 

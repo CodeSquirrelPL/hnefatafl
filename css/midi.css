@@ -1,18 +1,18 @@
 
 
-    #header {
+    header {
       padding-top: 3px;
       padding-bottom: 3px;
       margin: 15px auto;
       max-width: 97vmin;
     }
 
-    #bar {
+    .menu {
       max-width: 97vmin;
       margin: auto;
     }
 
-    .menu {
+    .menu__button {
       padding: 10px 0;
     }
 

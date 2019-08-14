@@ -25,25 +25,25 @@
 
 <body>
 <div id="container">
-	<div id="userbar">
+	<nav id="userbar">
 	<?php
 
 	require_once "php/functions/userbar.php";
 
 	?>
-	</div>
+	</nav>
 	<a href="index.php">
-	<div id="header">
+	<header>
 	<h1>Hnefatafl</h1>
 	<h6>Zasady gry</h6>
-	</div>
+	</header>
 	</a>
 
-	<div id="bar">
-		<a href="index.php"><div class="menu">Graj przy jednym komputerze</div></a>
-		<a href="enter.php"><div class="menu">Graj przez sieć</div></a>
+	<nav class="menu">
+		<a href="index.php"><div class="menu__button">Graj przy jednym komputerze</div></a>
+		<a href="enter.php"><div class="menu__button">Graj przez sieć</div></a>
 		<div class="empty"></div>
-	</div>
+	</nav>
 
 	<div id="content">
 	<h3>Zasady rozgrywki</h3>
@@ -86,7 +86,7 @@
 	<p><a href="index.php">Czarne zaczynają.</a></p>
 	</div>
 
-	<div id="footer">© Copyright 2017-2019 Paulina Filipiak</div>
+	<footer>© Copyright 2017-2019 Paulina Filipiak</footer>
 
 </div>
 </body>
