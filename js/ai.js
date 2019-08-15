@@ -15,7 +15,7 @@ moves = new Array();
   for (i=0; i<11; i++)  {
     for (j=0; j<11; j++)  {
       //console.log(i+" "+j);
-      //'<div class="square" id="' + j + 'x' + i + '"';
+      //'<div class="board__cell" id="' + j + 'x' + i + '"';
       //1 = na polu stoi król; 2 = na polu stoi obrońca króla; 3 = na polu stoi buntownik
       //if (board[i][j].value) playerMoves=playerMoves+movesSinglePiece(i, j, player);
       if (board[i][j].value) movesSinglePiece(i, j, player);

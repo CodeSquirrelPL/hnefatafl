@@ -35,10 +35,6 @@
 
     #board
     {
-    	text-align: center;
-    	grid-area: board;
-      margin: auto;
-    	display: grid;
     	grid-template-columns: repeat(11, 8.7vmin);
       grid-template-rows:    repeat(11, 8.7vmin);
     }
@@ -54,11 +50,6 @@
       max-width: 97vmin;
       margin: 0 auto 20px auto;
     }
-/*
-    .square
-    {
-    	border: 1px solid gray;
-    }*/
 
     .gamepiece_img	{
     	width: 100%;

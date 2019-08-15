@@ -1,7 +1,7 @@
 var zbite = new Array(2);	//licznik zbitych pionków - zbite[0]: czarne; zbite[1]: białe
 var i, j, x, y;
-var style_throne = "background-image: url(img/throne.png); background-size: 100% 100%";
-var style_x = "background-image: url(img/x.png); background-size: 100% 100%";
+var style_throne = "background-image: url(img/throne.png)";
+var style_x = "background-image: url(img/x.png)";
 var url = ['<img src="img/king.svg" class="gamepiece_img"/>', '<img src="img/white.svg"  class="gamepiece_img"/>', '<img src="img/black.svg" class="gamepiece_img"/>']
 //var move = 0; //zaczynają czarne (jeśli chcesz zmienić, zmodyfikuj funkcję "whoseCounter()")
 var x1=0, y1=0;
@@ -20,19 +20,19 @@ function Field(x, y, counter)
 
 Field.prototype.ableCounter = function()
 {
-	$('#'+this.id).attr("class", "square able");
+	$('#'+this.id).attr("class", "board__cell able");
 	$('#'+this.id).attr("onclick", "board["+this.x+"]["+this.y+"].chosing()");
 };
 
 Field.prototype.ableField = function()
 {
-	$('#'+this.id).attr("class", "square able");
+	$('#'+this.id).attr("class", "board__cell able");
 	$('#'+this.id).attr("onclick", "moving("+this.x+", "+this.y+")");
 };
 
 Field.prototype.notAble = function()
 {
-	$('#'+this.id).attr("class", "square");
+	$('#'+this.id).attr("class", "board__cell");
 	$('#'+this.id).attr("onclick", "");
 };
 
@@ -52,7 +52,7 @@ Field.prototype.chosing = function()
 {
 	x1 = this.x;
 	y1 = this.y;
-	$('#'+this.id).attr("class", "square chosen");
+	$('#'+this.id).attr("class", "board__cell chosen");
 	$('#'+this.id).attr("onclick", "moving("+this.x+", "+this.y+")");
 };
 
@@ -100,7 +100,7 @@ function rysuj_plansze()
 	{
 		for (j=0; j<11; j++)
 		{
-			plansza = plansza + '<div class="square" id="' + j + 'x' + i + '"';
+			plansza = plansza + '<div class="board__cell" id="' + j + 'x' + i + '"';
 			if ((i%10==0 && j%10==0) || (i==5 && j==5))
 				plansza = plansza + ' style="'+style_throne+'"';
 			else if ((i>2 && i<8 && j%10==0) || (j>2 && j<8 && i%10==0) || (i%8==1 && j==5) || (i==5 && j%8==1) || (i%4==3 && j==5) || (i==4 && j>3 && j<7) || (i==5 && j>2 && j<8) || (i==6 && j>3 && j<7))

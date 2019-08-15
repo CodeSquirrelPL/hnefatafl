@@ -19,19 +19,19 @@ function Field(x, y, counter)
 
 Field.prototype.ableCounter = function()
 {
-	document.getElementById(this.id).setAttribute("class", "square able");
+	document.getElementById(this.id).setAttribute("class", "board__cell able");
 	document.getElementById(this.id).setAttribute("onclick", "board["+this.x+"]["+this.y+"].chosing()");
 };
 
 Field.prototype.ableField = function()
 {
-	document.getElementById(this.id).setAttribute("class", "square able");
+	document.getElementById(this.id).setAttribute("class", "board__cell able");
 	document.getElementById(this.id).setAttribute("onclick", "moving("+this.x+", "+this.y+")");
 };
 
 Field.prototype.notAble = function()
 {
-	document.getElementById(this.id).setAttribute("class", "square");
+	document.getElementById(this.id).setAttribute("class", "board__cell");
 	document.getElementById(this.id).setAttribute("onclick", "");
 };
 
@@ -53,7 +53,7 @@ Field.prototype.chosing = function()
 {
 	x1 = this.x;
 	y1 = this.y;
-	document.getElementById(this.id).setAttribute("class", "square chosen");
+	document.getElementById(this.id).setAttribute("class", "board__cell chosen");
 	document.getElementById(this.id).setAttribute("onclick", "moving("+this.x+", "+this.y+")");
 };
 
@@ -140,7 +140,7 @@ function rysuj_plansze()
 	{
 		for (j=0; j<11; j++)
 		{
-			plansza = plansza + '<div class="square" id="' + j + 'x' + i + '"';
+			plansza = plansza + '<div class="board__cell" id="' + j + 'x' + i + '"';
 			if ((i%10==0 && j%10==0) || (i==5 && j==5))
 				plansza = plansza + ' style="'+style_throne+'"';
 			else if ((i>2 && i<8 && j%10==0) || (j>2 && j<8 && i%10==0) || (i%8==1 && j==5) || (i==5 && j%8==1) || (i%4==3 && j==5) || (i==4 && j>3 && j<7) || (i==5 && j>2 && j<8) || (i==6 && j>3 && j<7))

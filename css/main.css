@@ -46,24 +46,33 @@ a:visited
 	clear:both;
 }
 
-li
-{
-	margin: 0px auto;
+ul	{
+	margin: 20px auto;
+	list-style: circle inside none;
+	padding: 0;
 }
 
-.userbar
+li
 {
+
+}
+
+.userbar	{
+	display: flex;
+	flex-wrap: wrap;
 	background-color: #303030;
 	padding: 5px;
 }
 
-.userbar__login
+#userbar__login
 {
 	text-align: left;
+	flex-grow: 6;
 }
 
 .userbar__link
 {
+	padding: 1px 4px;
 	text-align: right;
 }
 
@@ -128,6 +137,7 @@ header
 #content
 {
 	background-color: #101010;
+	line-height: 1.5;
 }
 
 .error
@@ -171,6 +181,13 @@ header
 	grid-area: white;
 }
 
+#board	{
+	text-align: center;
+	margin: auto;
+	grid-area: board;
+	display: grid;
+}
+
 .throne	{
 	background-image: url(../img/throne.png);
 }
@@ -188,22 +205,13 @@ header
 	grid-area: black;
 }
 
-.square
+.board__cell
 {
 	border: 1px solid gray;
+	margin: -1px 0 0 -1px;
 	background-color: #444444;
-}
-
-.square_throne
-{
-	border: 1px solid gray;
-	background-color: #777777;
-}
-
-.square_x
-{
-	border: 1px solid gray;
-	background-color: #555555;
+	background-size: 100%;
+	border-collapse: collapse;
 }
 
 .able
@@ -221,13 +229,12 @@ header
 	background-color: gray;
 }
 
-.example
-{
-	margin: auto;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	text-align: center;
-	width: 190px;
+.board--example	{
+	display: grid;
+	grid-template-columns: repeat(3, 8.7vmin);
+	grid-template-rows: 8.7vmin;
+	width: 26.1vmin;
+	margin: 20px auto;
 }
 
 .table

@@ -1,10 +1,4 @@
-	#board
-	{
-		float: left;
-		width:660px;
-		margin-left:auto;
-		margin-right:auto;
-	}
+
 
 	.userbar
 	{
@@ -12,16 +6,10 @@
 		margin: 30px auto 30px auto;
 	}
 
-	.userbar__login
-	{
-		float:left;
-		width: 70%;
+	.userbar__login	{
 	}
 
-	.userbar__link
-	{
-		float:left;
-		width: 10%;
+	.userbar__link	{
 	}
 
 	header
@@ -129,46 +117,23 @@
 
 	#board
 	{
-		text-align: center;
-		width: 100%;
-		grid-area: board;
-
-		display: grid;
-
 		grid-template-rows:    repeat(11, 60px);
 		grid-template-columns: repeat(11, 60px);
 	}
-/*
-	.square
-	{
-		border: 1px solid gray;
-	}*/
 
 	#right	{
 		margin-right: auto;
 	}
 
-	.square
-	{
-		width: 60px;
-		height: 60px;
-	}
-
-	.square_throne
-	{
-		width: 60px;
-		height: 60px;
-	}
-
-	.square_x
-	{
-		width: 60px;
-		height: 60px;
-	}
-
 	.table
 	{
 		width: 600px;
+	}
+
+	.board--example	{
+		grid-template-columns: repeat(3, 60px);
+		grid-template-rows: 60px;
+		width: 180px;
 	}
 
 	footer

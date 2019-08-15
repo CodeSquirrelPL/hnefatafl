@@ -21,10 +21,6 @@
 
     #board
     {
-    	text-align: center;
-    	grid-area: board;
-      margin: auto;
-    	display: grid;
     	grid-template-columns: repeat(11, 8.7vmin);
       grid-template-rows:    repeat(11, 8.7vmin);
     }
@@ -37,11 +33,6 @@
       font-size: smaller;
       padding: 4px;
     }
-/*
-    .square
-    {
-    	border: 1px solid gray;
-    }*/
 
     .gamepiece_img	{
     	width: 100%;
