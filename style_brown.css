@@ -42,12 +42,7 @@ a:visited
 	clear:both;
 }
 
-.notUnderlined
-{
-	text-decoration: none;
-}
-
-#userbar
+.userbar
 {
 	width: 80%;
 	background-color: #352820;
@@ -55,14 +50,14 @@ a:visited
 	margin: 30px auto 30px auto;
 }
 
-#login
+.userbar__login
 {
 	float:left;
 	text-align: left;
 	width: 70%;
 }
 
-.user
+.userbar__link
 {
 	float:left;
 	text-align: right;

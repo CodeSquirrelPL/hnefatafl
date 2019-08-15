@@ -160,7 +160,7 @@ if ($game['setting']!=0) echo '<body onload="rysuj_plansze()" onunload="alert'."
 else echo '<body>';
 ?>
 <div id="container">
-<nav id="userbar">
+<nav class="userbar">
 
 <?php
 
@@ -174,8 +174,8 @@ else echo '<body>';
 	</header>
 
 	<nav class="menu">
-		<a href="enter.php"><div class="menu__button">Graj przez sieć</div></a>
-		<a href="rules.php"><div class="menu__button">Zasady</div></a>
+		<a href="enter.php" class="menu__button">Graj przez sieć</a>
+		<a href="rules.php" class="menu__button">Zasady</a>
 
 		<div class="empty"></div>
 	</nav>

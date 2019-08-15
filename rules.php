@@ -17,31 +17,29 @@
 	<meta name="keywords" content="hnefatafl, szachy wikingów, wikingowie, szachy" />
 
 	<link rel="stylesheet" href="css/main.css" type="text/css" />
-<link rel="stylesheet" media="(min-width: 1199px)" href="css/maxi.css" type="text/css" />
-<link rel="stylesheet" media="(max-width: 1200px) and (min-width: 800px)" href="css/midi.css" type="text/css" />
-<link rel="stylesheet" media="(max-width: 800px)" href="css/mini.css" type="text/css" />
+	<link rel="stylesheet" media="(min-width: 1199px)" href="css/maxi.css" type="text/css" />
+	<link rel="stylesheet" media="(max-width: 1200px) and (min-width: 800px)" href="css/midi.css" type="text/css" />
+	<link rel="stylesheet" media="(max-width: 800px)" href="css/mini.css" type="text/css" />
 
 </head>
 
 <body>
 <div id="container">
-	<nav id="userbar">
+	<nav class="userbar">
 	<?php
 
 	require_once "php/functions/userbar.php";
 
 	?>
 	</nav>
-	<a href="index.php">
-	<header>
+	<header><a href="index.php" class="header__link">
 	<h1>Hnefatafl</h1>
 	<h6>Zasady gry</h6>
-	</header>
-	</a>
+	</a></header>
 
 	<nav class="menu">
-		<a href="index.php"><div class="menu__button">Graj przy jednym komputerze</div></a>
-		<a href="enter.php"><div class="menu__button">Graj przez sieć</div></a>
+		<a href="index.php" class="menu__button">Graj przy jednym komputerze</a>
+		<a href="enter.php" class="menu__button">Graj przez sieć</a>
 		<div class="empty"></div>
 	</nav>
 
@@ -56,9 +54,9 @@
 			<li>
 				oskrzydlenie wrażego pionka z dwóch przeciwnych stron równolegle do krawędzi planszy,</br>
 				<div class="example">
-					<div class="square"><img src="img/white.png"/></div>
-					<div class="square"><img src="img/black.png"/></div>
-					<div class="square"><img src="img/white.png"/></div>
+					<div class="square"><img src="img/white.svg"  class="gamepiece_img"/></div>
+					<div class="square"><img src="img/black.svg"  class="gamepiece_img"/></div>
+					<div class="square"><img src="img/white.svg"  class="gamepiece_img"/></div>
 					<div class="empty"></div>
 
 				</div>
@@ -69,8 +67,8 @@
 				przyparcie do tronu (tylko jeśli jest pusty) - jeśli pionek stoi przy tronie, można go zbić, ustawiając swój pionek po przeciwnej od tronu stronie
 				<div class="example">
 				<div class="square" style="background-image: url(img/throne.png)"></div>
-				<div class="square"><img src="img/white.png"/></div>
-				<div class="square"><img src="img/black.png"/></div>
+				<div class="square"><img src="img/white.svg"  class="gamepiece_img"/></div>
+				<div class="square"><img src="img/black.svg"  class="gamepiece_img"/></div>
 				<div class="empty"></div>
 
 				</div>

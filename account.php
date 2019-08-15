@@ -44,7 +44,7 @@
 
 <body onload="zxc()">
 <div id="container">
-<nav id="userbar">
+<nav class="userbar">
 
 <?php
 
@@ -59,8 +59,8 @@ require_once "php/functions/userbar.php";
 	</header>
 
 	<nav class="menu">
-		<a href="index.php"><div class="menu__button">Zagraj przy jednym komputerze</div></a>
-		<a href="rules.php"><div class="menu__button">Zasady</div></a>
+		<a href="index.php" class="menu__button">Zagraj przy jednym komputerze</a>
+		<a href="rules.php" class="menu__button">Zasady</a>
 		<div class="empty"></div>
 	</nav>
 	<div id="content">

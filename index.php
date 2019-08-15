@@ -26,7 +26,7 @@
 
 <body onload="rysuj_plansze()">
 <div id="container">
-	<nav id="userbar">
+	<nav class="userbar">
 <?php
 
 	require_once "php/functions/userbar.php";
@@ -40,8 +40,8 @@
 	</header>
 
 	<nav class="menu">
-		<a href="enter.php"><div class="menu__button">Graj przez sieć</div></a>
-		<a href="rules.php"><div class="menu__button">Zasady</div></a>
+		<a href="enter.php" class="menu__button">Graj przez sieć</a>
+		<a href="rules.php" class="menu__button">Zasady</a>
 		<div class="empty"></div>
 	</nav>
 

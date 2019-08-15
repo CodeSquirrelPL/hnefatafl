@@ -88,14 +88,12 @@
 
 <body>
 <div id="container">
-<nav id="userbar">
-<?php
-	if (!isset($_SESSION['zalogowany']) || ($_SESSION['zalogowany']==false))
-	echo '<a href="enter.php">Zaloguj się lub zarejestruj</a>, żeby zagrać przez sieć';
-	else
-	echo '<div id="login"><a href="account.php" title="Ustawienia profilu">'.$_SESSION['login'].'</a></div><div class="user"><a href="account.php#games">rozgrywki: '.$_SESSION['games'].'</a></div><div class="user"><a href="account.php#challenges">wyzwania: '.$_SESSION['challenges'].'</a></div><div class="user"><a href="logout.php">wyloguj</a></div> <div class="empty"></div>';
-?>
+<nav class="userbar">
+	<?php
 
+		require_once "php/functions/userbar.php";
+
+	?>
 	</nav>
 	<header>
 	<h1>Hnefatafl</h1>
@@ -107,8 +105,8 @@
 	</header>
 
 	<nav class="menu">
-		<a href="index.php"><div class="menu__button">Zagraj przy jednym komputerze</div></a>
-		<a href="rules.php"><div class="menu__button">Zasady</div></a>
+		<a href="index.php" class="menu__button">Zagraj przy jednym komputerze</a>
+		<a href="rules.php" class="menu__button">Zasady</a>
 
 		<div class="empty"></div>
 	</nav>

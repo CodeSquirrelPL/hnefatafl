@@ -28,9 +28,9 @@
 	</a>
 
 	<nav class="menu">
-		<a href="index.php"><div class="menu__button">Graj przy jednym komputerze</div></a>
-		<a href="enter.php"><div class="menu__button">Graj przez sieć</div></a>
-		<a href="rules.php"><div class="menu__button">Zasady</div></a>
+		<a href="index.php" class="menu__button">Graj przy jednym komputerze</a>
+		<a href="enter.php" class="menu__button">Graj przez sieć</a>
+		<a href="rules.php" class="menu__button">Zasady</a>
 		<div class="empty"></div>
 	</nav>
 

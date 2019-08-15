@@ -21,7 +21,7 @@
 <body>
 <div id="container">
 	<!--
-	<nav id="userbar">
+	<nav class="userbar">
 		<a href="login.php">Zaloguj się</a> lub <a href="register.php">zarejestruj</a>, żeby zagrać przez sieć
 	</nav>
 	-->

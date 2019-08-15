@@ -34,7 +34,7 @@
 <body>
 <div id="container">
 	<!--
-	<nav id="userbar">
+	<nav class="userbar">
 		<a href="login.php">Zaloguj się</a> lub <a href="register.php">zarejestruj</a>, żeby zagrać przez sieć
 	</nav>
 	-->
@@ -44,8 +44,8 @@
 	</header>
 
 	<nav class="menu">
-		<a href="index.php"><div class="menu__button">Zagraj przy jednym komputerze</div></a>
-		<a href="rules.php"><div class="menu__button">Zasady</div></a>
+		<a href="index.php" class="menu__button">Zagraj przy jednym komputerze</a>
+		<a href="rules.php" class="menu__button">Zasady</a>
 		<div class="empty"></div>
 	</nav>
 

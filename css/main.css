@@ -21,8 +21,6 @@ body
 	text-align: center;
 }
 
-
-
 h1
 {
 	font-family: 'Norse';
@@ -48,29 +46,23 @@ a:visited
 	clear:both;
 }
 
-.notUnderlined
-{
-	text-decoration: none;
-}
-
 li
 {
 	margin: 0px auto;
 }
 
-#userbar
+.userbar
 {
 	background-color: #303030;
 	padding: 5px;
 }
 
-/* część userbara - php/functions/userbar.php */
-#login
+.userbar__login
 {
 	text-align: left;
 }
 
-.user
+.userbar__link
 {
 	text-align: right;
 }
@@ -88,20 +80,31 @@ header
 	text-shadow: 1px 1px 2px black;
 }
 
+/* żeby link obejmował cały header, musisz przenieść padding do linka */
+
+.header__link	{
+	text-decoration: none;
+	display: block;
+	height: 100%;
+}
+
 .menu
 {
 	background-color: #777777;
+	color: #191919;
 }
 
 .menu__button
 {
+	display: block;
 	cursor: pointer;
-	color: #191919;
+	text-decoration: none;
 	font-weight: bold;
 	float: left;
 	width: 48%;
 	margin-left: 1%;
 	margin-right: 1%;
+	height: 100%;
 }
 
 .menu__button:hover

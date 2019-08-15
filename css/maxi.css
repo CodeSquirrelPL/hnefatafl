@@ -6,19 +6,19 @@
 		margin-right:auto;
 	}
 
-	#userbar
+	.userbar
 	{
 		width: 80%;
 		margin: 30px auto 30px auto;
 	}
 
-	#login
+	.userbar__login
 	{
 		float:left;
 		width: 70%;
 	}
 
-	.user
+	.userbar__link
 	{
 		float:left;
 		width: 10%;
