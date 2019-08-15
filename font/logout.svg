@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2019 by original authors @ fontello.com</metadata>
+<defs>
+<font id="logout" horiz-adv-x="1000" >
+<font-face font-family="logout" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="logout" unicode="&#xe800;" d="M357 46q0-2 1-11t0-14-2-14-5-11-12-3h-178q-67 0-114 47t-47 114v392q0 67 47 114t114 47h178q8 0 13-5t5-13q0-2 1-11t0-15-2-13-5-11-12-3h-178q-37 0-63-26t-27-64v-392q0-37 27-63t63-27h174t6 0 7-2 4-3 4-5 1-8z m518 304q0-14-11-25l-303-304q-11-10-25-10t-25 10-11 25v161h-250q-14 0-25 11t-11 25v214q0 15 11 25t25 11h250v161q0 14 11 25t25 10 25-10l303-304q11-10 11-25z" horiz-adv-x="928.6" />
+
+<glyph glyph-name="logout-3" unicode="&#xe802;" d="M912 614l276-266-276-264v177h-413v176h413v177z m-166-512l106-107q-156-146-338-146-217 0-365 143t-149 359q0 135 68 250t184 182 250 66q184 0 349-148l-105-106q-114 104-243 104-149 0-251-104t-103-254q0-140 106-241t247-101q131 0 244 103z" horiz-adv-x="1188" />
+
+<glyph glyph-name="logout-2" unicode="&#xf02d;" d="M0 84q0-84 59-143t144-60h72q33 0 57 24t23 57-23 57-57 23h-72q-18 0-30 13t-12 29v532q0 17 12 29t30 13h72q33 0 57 23t23 57-23 57-57 23h-72q-84 0-144-59t-59-143v-532z m238 252q0 33 24 57t57 23h344l-110 111q-24 23-24 57t24 57q23 23 57 23t56-23l248-248q23-24 23-57t-23-57l-243-242q-23-23-57-23t-57 23q-23 23-23 57t24 57l105 105h-344q-33 0-57 23t-24 57z" horiz-adv-x="937.5" />
+</font>
+</defs>
+</svg>

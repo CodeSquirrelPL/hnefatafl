@@ -8,3 +8,9 @@ RewriteEngine on
 RewriteRule /graj-w-hnefataf /index.php
 RewriteRule /zaloguj /enter.php
 RewriteRule /zasady-hnefatafl /rules.php
+
+AddType font/ttf                         ttf
+AddType font/otf                         otf
+AddType font/woff                        woff
+AddType font/woff2                       woff2
+AddType application/vnd.ms-fontobject    eot

@@ -1,0 +1,28 @@
+{
+  "name": "logout",
+  "css_prefix_text": "icon-",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "0d20938846444af8deb1920dc85a29fb",
+      "css": "logout",
+      "code": 59392,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "a6b6f85116fc55e4a7c83d66973035a7",
+      "css": "logout-2",
+      "code": 61485,
+      "src": "mfglabs"
+    },
+    {
+      "uid": "74b2f1d1ee541715b3f389f7cdf63d1c",
+      "css": "logout-3",
+      "code": 59394,
+      "src": "websymbols"
+    }
+  ]
+}

@@ -17,6 +17,7 @@
 	<meta name="keywords" content="hnefatafl, szachy wikingów, wikingowie, szachy" />
 
 	<link rel="stylesheet" href="css/main.css" type="text/css" />
+<link rel="stylesheet" href="css/logout.css" type="text/css" />
 	<link rel="stylesheet" media="(min-width: 1199px)" href="css/maxi.css" type="text/css" />
 	<link rel="stylesheet" media="(max-width: 1200px) and (min-width: 800px)" href="css/midi.css" type="text/css" />
 	<link rel="stylesheet" media="(max-width: 800px)" href="css/mini.css" type="text/css" />
@@ -42,7 +43,7 @@
 	<nav class="menu">
 		<a href="enter.php" class="menu__button">Graj przez sieć</a>
 		<a href="rules.php" class="menu__button">Zasady</a>
-		<div class="empty"></div>
+		
 	</nav>
 
 	<div id="game">
