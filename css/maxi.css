@@ -72,10 +72,9 @@
 	{
 		margin: auto;
 		margin-top: 20px;
-		padding: auto;
 		text-align: center;
 		grid-template-columns: auto 660px auto;
-		grid-template-rows:    repeat(2, auto);
+		grid-template-rows:    repeat(3, auto);
 		grid-template-areas: "player player player" "white board black";
 	}
 
@@ -140,3 +139,7 @@
 		margin-right: 10%;
 		margin-left: 10%;
 	}
+
+	#surrender	{
+	grid-column: 2 / span 1;
+}

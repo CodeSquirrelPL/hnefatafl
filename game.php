@@ -203,7 +203,9 @@ else echo '<body>';
 		</div>
 	</div>
 
-</div>
+	<p id="surrender"><a href="" id="surrender__button" class="button">poddaj się</a></p>
+
+	</div>
 
 	<footer>© Copyright 2017-2019 Paulina Filipiak</footer>
 

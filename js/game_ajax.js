@@ -108,14 +108,10 @@ function rysuj_plansze()
 			plansza = plansza + ' onmouseover="ability('+j+', '+i+')"></div>';
 		}
 
-
 	}
 
-	plansza += "<p><a href='yielding.php?game=" + game + "'><button>poddaj się</button></a></p>";
-
-	$('#'+"board").html(plansza);
-
-
+	$('#board').html(plansza);
+	$('#surrender__button').attr("href", 'yielding.php?game='+game);
 	rozstaw_figury();
 }
 
