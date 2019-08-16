@@ -175,8 +175,8 @@ else echo '<body>';
 	</header>
 
 	<nav class="menu">
-		<a href="enter.php" class="menu__button">Graj przez sieć</a>
-		<a href="rules.php" class="menu__button">Zasady</a>
+		<a href="logowanie" class="menu__button">Graj przez sieć</a>
+		<a href="zasady-gry" class="menu__button">Zasady</a>
 
 
 	</nav>

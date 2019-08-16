@@ -63,8 +63,8 @@
 	</header>
 
 	<nav class="menu">
-		<a href="index.php" class="menu__button">Zagraj przy jednym komputerze</a>
-		<a href="rules.php" class="menu__button">Zasady</a>
+		<a href="graj" class="menu__button">Zagraj przy jednym komputerze</a>
+		<a href="zasady-gry" class="menu__button">Zasady</a>
 
 		
 	</nav>

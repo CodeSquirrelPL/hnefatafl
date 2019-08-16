@@ -61,8 +61,8 @@
 	</header>
 
 	<nav class="menu">
-		<a href="index.php" class="menu__button">Zagraj przy jednym komputerze</a>
-		<a href="rules.php" class="menu__button">Zasady</a>
+		<a href="graj" class="menu__button">Zagraj przy jednym komputerze</a>
+		<a href="zasady-gry" class="menu__button">Zasady</a>
 
 		
 	</nav>
@@ -77,7 +77,7 @@
 	}
 
 	if (!isset($_SESSION['zalogowany']) || ($_SESSION['zalogowany']==false))
-	echo '<a href="enter.php"><img src="img/miecze2.png"/><br/>Zaloguj się lub zarejestruj, by rzucić wyzwanie użytkownikowi '.$user['login'].'</a>';
+	echo '<a href="logowanie"><img src="img/miecze2.png"/><br/>Zaloguj się lub zarejestruj, by rzucić wyzwanie użytkownikowi '.$user['login'].'</a>';
 	else {
 		echo '<a href="challenge.php?id=1"><img src="img/miecze2.png"/><br/>Rzuć wyzwanie <font color="#803DFF">Pyrze</font></a><br/><br/>';
 		echo '<a href="message.php?id=1&login=Pyra"><img src="img/koperta.png"><br/>Wyślij wiadomość do <font color="#803DFF">Pyry</font></a>';

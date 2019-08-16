@@ -11,9 +11,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Hnefatafl - gorące krzesło</title>
+	<title>Hnefatafl - zagraj online - gorące krzesło</title>
 
-	<meta name="description" content="Hnafatafl - szachy wikingów" />
+	<meta name="description" content="Hnafatafl - szachy wikingów. Zagraj online w hnefatafl, przy jednym komputerze lub przez sieć!" />
 	<meta name="keywords" content="hnefatafl, szachy wikingów, wikingowie, szachy" />
 
 	<link rel="stylesheet" href="css/main.css" type="text/css" />
@@ -41,9 +41,9 @@
 	</header>
 
 	<nav class="menu">
-		<a href="enter.php" class="menu__button">Graj przez sieć</a>
-		<a href="rules.php" class="menu__button">Zasady</a>
-		
+		<a href="logowanie" class="menu__button">Graj przez sieć</a>
+		<a href="zasady-gry" class="menu__button">Zasady</a>
+
 	</nav>
 
 	<div id="game">

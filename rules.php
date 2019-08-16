@@ -11,10 +11,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Hnefatafl - zasady rozgrywki</title>
+	<title>Hnefatafl - zasady rozgrywki - jak grać w hnefatafl</title>
 
-	<meta name="description" content="Hnafatafl - szachy wikingów - zasady rozgrywki" />
-	<meta name="keywords" content="hnefatafl, szachy wikingów, wikingowie, szachy" />
+	<meta name="description" content="Hnafatafl - szachy wikingów - zasady rozgrywki. Dowiedz się, jak grać w hnefatafl" />
+	<meta name="keywords" content="hnefatafl, szachy wikingów, wikingowie, szachy, hnefatafl zasady" />
 
 	<link rel="stylesheet" href="css/main.css" type="text/css" />
 <link rel="stylesheet" href="css/logout.css" type="text/css" />
@@ -33,14 +33,14 @@
 
 	?>
 	</nav>
-	<header><a href="index.php" class="header__link">
+	<header><a href="graj" class="header__link">
 	<h1>Hnefatafl</h1>
 	<h6>Zasady gry</h6>
 	</a></header>
 
 	<nav class="menu">
-		<a href="index.php" class="menu__button">Graj przy jednym komputerze</a>
-		<a href="enter.php" class="menu__button">Graj przez sieć</a>
+		<a href="graj" class="menu__button">Graj przy jednym komputerze</a>
+		<a href="logowanie" class="menu__button">Graj przez sieć</a>
 	</nav>
 
 	<div id="content">
@@ -78,7 +78,7 @@
 	<p>Król bije tak samo, jak inne pionki. Możliwe jest zbicie kilka figur naraz.</p>
 	<p>Nie ma ruchów "samobójczych" - jeśli gracz ustawi pionek między dwiema figurami drugiego gracza lub między tronem a obcą figurą, nie traci tego pionka.</p>
 	<p>Król może zwyciężyć przez stworzenie "twierdzy" przy krawędzi planszy - linii pionków, których zbicie w tej pozycji jest niemożliwe, chroniącej króla przed pojmaniem, ale umożliwiającej mu poruszanie się wewnątrz. Natomiast jeśli król i jego obrońcy zostaną otoczeni przez przeciwnika tak, że żaden z nich nie będzie mógł dosięgnąć krawędzi planszy, przegrywają.</p>
-	<p><a href="index.php">Czarne zaczynają.</a></p>
+	<p><a href="graj">Czarne zaczynają.</a></p>
 	</div>
 
 	<footer>© Copyright 2017-2019 Paulina Filipiak</footer>

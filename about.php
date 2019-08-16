@@ -21,7 +21,7 @@
 <body>
 <div id="container">
 
-	<a href="index.php">
+	<a href="graj">
 	<header>
 	<h1>Hnefatafl</h1>
 	<h6>o grze</h6>
@@ -29,9 +29,9 @@
 	</a>
 
 	<nav class="menu">
-		<a href="index.php" class="menu__button">Graj przy jednym komputerze</a>
-		<a href="enter.php" class="menu__button">Graj przez sieć</a>
-		<a href="rules.php" class="menu__button">Zasady</a>
+		<a href="graj" class="menu__button">Graj przy jednym komputerze</a>
+		<a href="logowanie" class="menu__button">Graj przez sieć</a>
+		<a href="zasady-gry" class="menu__button">Zasady</a>
 
 	</nav>
 

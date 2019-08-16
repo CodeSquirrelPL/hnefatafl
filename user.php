@@ -106,8 +106,8 @@
 	</header>
 
 	<nav class="menu">
-		<a href="index.php" class="menu__button">Zagraj przy jednym komputerze</a>
-		<a href="rules.php" class="menu__button">Zasady</a>
+		<a href="graj" class="menu__button">Zagraj przy jednym komputerze</a>
+		<a href="zasady-gry" class="menu__button">Zasady</a>
 
 		
 	</nav>
@@ -122,7 +122,7 @@
 	}
 
 	if (!isset($_SESSION['zalogowany']) || ($_SESSION['zalogowany']==false))
-	echo '<a href="enter.php"><div class="bttn"><img src="img/miecze2.png"/><br/>Zaloguj się lub zarejestruj, by rzucić wyzwanie użytkownikowi '.$user['login'].'</div></a>';
+	echo '<a href="logowanie"><div class="bttn"><img src="img/miecze2.png"/><br/>Zaloguj się lub zarejestruj, by rzucić wyzwanie użytkownikowi '.$user['login'].'</div></a>';
 	else if ($_SESSION['id']!=$_GET['id'])	{
 
 
