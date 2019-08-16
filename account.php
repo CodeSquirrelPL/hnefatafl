@@ -76,7 +76,7 @@ require_once "php/functions/userbar.php";
 	if ($result->num_rows>0)
 	{
 echo<<<END
-	<table class="table" align="center" border="1">
+	<table role="presentation"  align="center" border="1">
 		<tr>
 			<td><h4>Data rozpoczęcia</h4></td><td><h4>Przeciwnik</h4></td><td><h4>Ruchy</h4></td><td><h4>Akcja</h4></td>
 		</tr>
@@ -130,7 +130,7 @@ END;
 	if ($result->num_rows>0)
 	{
 echo<<<END
-	<table class="table" align="center" border="1">
+	<table role="presentation"  align="center" border="1">
 		<tr>
 			<td><h4>Data wysłania</h4></td><td><h4>Przeciwnik</h4></td><td><h4>Wybór kolorów</h4></td><td><h4>Akcja</h4></td>
 		</tr>
@@ -169,7 +169,7 @@ END;
 	if ($result->num_rows>0)
 	{
 echo<<<END
-	<table class="table" align="center" border="1">
+	<table role="presentation" class="table-wide" align="center" border="1">
 		<tr>
 			<td><h4>Data wysłania</h4></td><td><h4>Przeciwnik</h4></td><td><h4>Status</h4></td><td><h4>Akcja</h4></td>
 		</tr>
@@ -254,7 +254,7 @@ EOL;
 	{
 ?>
 	<h4>Rozegrane partie</h4>
-	<table class="table" align="center" border="1">
+	<table role="presentation"  align="center" border="1">
 		<tr>
 			<td><h4>Data</h4></td><td><h4>Przeciwnik</h4></td><td><h4>Wynik</h4></td>
 		</tr>

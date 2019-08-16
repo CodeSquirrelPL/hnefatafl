@@ -181,31 +181,38 @@ else echo '<body>';
 
 	</nav>
 
-	<div id="game">
-
-	<div id="current_player" class="width: 100%;">czarne</div>
-
-	<div class="side" id="left">
-		<div class="side_header">Zbite królewskie piony</div>
-		<div class="zbite" id="side_1">
-		</div>
-	</div>
-
-	<div id="board">
 	<?php
-		if ($game['setting']==0) echo '<h3>Wybór koloru pionków pozostawiono tobie. Grasz białymi czy czarnymi?</h3><form action="colors.php?game='.$game['id'].'&adv_id='.$game['adversary_id'].'" method="POST"><p><label><input type="radio" name="color" value="black"/>czarnymi</label></p><p><label><input type="radio" name="color" value="white"/>białymi</label></p><input type="submit" value="Rozpocznij grę"></form>'
+		if ($game['setting']==0) echo '<div class="choose_colour"><h3>Wybór koloru pionków pozostawiono tobie. Grasz białymi czy czarnymi?</h3><form action="colors.php?game='.$game['id'].'&adv_id='.$game['adversary_id'].'" method="POST"><p><label><input type="radio" name="color" value="black"/>czarnymi</label></p><p><label><input type="radio" name="color" value="white"/>białymi</label></p><input type="submit" class="button" value="Rozpocznij grę"></form></div>';
+
+		else echo <<<END
+
+<div id="game">
+
+<div id="current_player" class="width: 100%;">czarne</div>
+
+<div class="side" id="left">
+	<div class="side_header">Zbite królewskie piony</div>
+	<div class="zbite" id="side_1">
+	</div>
+</div>
+
+
+<div id="board">
+
+</div>
+
+<div class="side" id="right">
+	<div class="side_header">Zbite piony buntowników</div>
+	<div class="zbite" id="side_0">
+	</div>
+</div>
+
+<p id="surrender"><a href="" id="surrender__button" class="button">poddaj się</a></p>
+
+</div>
+
+END;
 	?>
-	</div>
-
-	<div class="side" id="right">
-		<div class="side_header">Zbite piony buntowników</div>
-		<div class="zbite" id="side_0">
-		</div>
-	</div>
-
-	<p id="surrender"><a href="" id="surrender__button" class="button">poddaj się</a></p>
-
-	</div>
 
 	<footer>© Copyright 2017-2019 Paulina Filipiak</footer>
 

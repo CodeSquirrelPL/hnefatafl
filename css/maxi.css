@@ -2,7 +2,6 @@
 
 	.userbar
 	{
-		width: 80%;
 		margin: 30px auto 30px auto;
 	}
 
@@ -12,40 +11,26 @@
 	.userbar__link	{
 	}
 
+	.userbar, header, .menu, footer	{
+		width: 80%;
+	}
+
 	header
 	{
-		width: 80%;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 40px;
-		padding-top: 15px;
-		padding-bottom: 15px;
+		margin: 40px auto 0 auto;
+		padding: 15px 0;
 	}
 
 	.menu
 	{
-		width: 80%;
 		margin: 10px auto;
 		padding: 0;
 	}
 
 	.menu__button
 	{
-		padding-top: 10px;
-		padding-bottom: 10px;
+		padding: 10px;
 		margin: 5px;
-	}
-
-	#info_left
-	{
-		margin-left: 5%;
-		text-align: left;
-		width: 20%;
-	}
-
-	.info
-	{
-		float: left;
 	}
 
 	#player
@@ -53,37 +38,25 @@
 		width: 60%;
 	}
 
-	#info_right
-	{
-		margin-right: 5%;
-		text-align: right;
-		width: 20%;
-	}
-
 	#content
 	{
 		width: 70%;
-		margin-left: 10%;
-		margin-right: 10%;
+		margin: 0 10%;
 		padding: 20px 5% 20px 5%;
 	}
 
 	#game
 	{
-		margin: auto;
-		margin-top: 20px;
+		margin: 20px auto;
 		text-align: center;
 		grid-template-columns: auto 660px auto;
 		grid-template-rows:    repeat(3, auto);
 		grid-template-areas: "player player player" "white board black";
 	}
 
-	#current_player
-	{
-		margin-bottom:15px;
+	#current_player	{
 		width: 660px;
-		margin-right: auto;
-		margin-left: auto;
+		margin: 0 auto 15px;
 	}
 
 	.gamepiece_img	{
@@ -103,8 +76,7 @@
 	{
 		float: left;
 		width: 200px;
-		margin: 30px;
-		margin-top:0;
+		margin: 0 30px 30px 30px;
 	}
 
 	#left	{
@@ -121,7 +93,7 @@
 		margin-right: auto;
 	}
 
-	.table
+	table
 	{
 		width: 600px;
 	}
@@ -134,10 +106,7 @@
 
 	footer
 	{
-		width: 80%;
-		margin: 40px;
-		margin-right: 10%;
-		margin-left: 10%;
+		margin: 40px 10%;
 	}
 
 	#surrender	{

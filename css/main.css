@@ -199,6 +199,7 @@ header
 	margin: auto;
 	grid-area: board;
 	display: grid;
+	background-color: #444444;
 }
 
 .throne	{
@@ -250,7 +251,7 @@ header
 	margin: 20px auto;
 }
 
-.table
+table
 {
 	border-collapse: collapse;
 	table-layout: auto;
@@ -295,4 +296,10 @@ footer
 .warning
 {
 	color: red;
+}
+
+.choose_colour	{
+	margin: 5vmin;
+	padding: 5vmin;
+	background-color: #232323;
 }
