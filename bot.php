@@ -48,7 +48,7 @@
 
 	<div id="game">
 
-	<div id="current_player" class="width: 100%;">czarne</div>
+	<div id="current_player" >czarne</div>
 
 	<div class="side" id="left">
 		<div class="side_header">Zbite królewskie piony</div>

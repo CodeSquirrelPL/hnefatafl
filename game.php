@@ -120,7 +120,7 @@
 			$script = $script.'black['.$i.'] = ['.$black[$i][0].', '.$black[$i][1].']; ';
 		}
 
-		$script = $script.'var color = '.$color.'; '.'var move = '.$game['move'].'; var setting='.$game['setting'].'; var game='.$game['id'].'; var id_black='.$game['id_black'].'; var id_white='.$game['id_white'].'; var players = ["'.$blackplayer.' (czarne)", "'.$whiteplayer.' (białe)"]; ';
+		$script = $script.'var color = '.$color.'; '.'var move = '.$game['move'].'; var setting='.$game['setting'].'; var game='.$game['id'].'; var players_id=['.$game['id_black'].', '.$game['id_white'].']; var players = ["'.$blackplayer.' (czarne)", "'.$whiteplayer.' (białe)"]; ';
 	}
 ?>
 
@@ -188,7 +188,7 @@ else echo '<body>';
 
 <div id="game">
 
-<div id="current_player" class="width: 100%;">czarne</div>
+<div id="current_player" >czarne</div>
 
 <div class="side" id="left">
 	<div class="side_header">Zbite królewskie piony</div>
@@ -207,7 +207,7 @@ else echo '<body>';
 	</div>
 </div>
 
-<p id="surrender"><a href="" id="surrender__button" class="button">poddaj się</a></p>
+<p id="surrender"><button id="surrender__button" class="button">poddaj się</button></p>
 
 </div>
 

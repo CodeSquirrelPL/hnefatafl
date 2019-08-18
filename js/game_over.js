@@ -32,6 +32,8 @@ function rysuj_plansze()
 {
 	$("#current_player").html("koniec gry");
 
+	$('#surrender').css("display", "none");
+
 	document.getElementById("side_1").innerHTML = "";
 	document.getElementById("side_0").innerHTML = "";
 	var plansza = "";
@@ -53,7 +55,6 @@ function rysuj_plansze()
 
 
 	document.getElementById("board").innerHTML = plansza;
-
 
 	rozstaw_figury();
 }

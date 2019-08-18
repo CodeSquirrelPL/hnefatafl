@@ -7,6 +7,8 @@ var url = ['<img src="img/king.svg" class="gamepiece_img"/>', '<img src="img/whi
 var x1=0, y1=0;
 //var players = ["czarne", "białe"];
 var xml = new XMLHttpRequest();
+//var players_id - 0 - czarne, 1 białe
+// color - zdefiniowane w game.php (wartości 1 lub 0)
 
 /**************************** klasa Field *******************************/
 
@@ -111,7 +113,7 @@ function rysuj_plansze()
 	}
 
 	$('#board').html(plansza);
-	$('#surrender__button').attr("href", 'yielding.php?game='+game);
+	$('#surrender__button').attr("onclick", 'surrender()');
 	rozstaw_figury();
 }
 
@@ -269,6 +271,16 @@ function ability_fields(x, y) //sprawdzanie, czy na polu można postawić aktywn
 	board[x][y].ableField();
 }
 
+
+function switch_players()	{
+	move++;
+	var txt="kuku na muniu";
+	if (color==move%2) {txt= " - twój ruch";}
+	else {txt = " - odśwież stronę (F5), żeby sprawdzić, czy wykonał_a już ruch";}
+	$('#current_player').html(players[move%2]+txt);
+}
+
+
 /**************************** ruch ***********************************/
 
 function moving(x, y)
@@ -292,14 +304,11 @@ function moving(x, y)
 	board[x1][y1].notAble();
 	x1=0;
 	y1=0;
-	if (board[x][y].value==1) end(x, y);
-	if_striking(x, y);
-	move++;
-	var txt="kuku na muniu";
-	if (color==move%2) {txt= " - twój ruch";}
-	else {txt = " - odśwież stronę (F5), żeby sprawdzić, czy wykonał_a już ruch";}
-	$('#'+"current_player").html(players[move%2]+txt);
 
+	if_striking(x, y);
+
+	if (board[x][y].value==1) end(x, y);
+	else switch_players();
 
 }
 
@@ -335,21 +344,9 @@ function striking(x, y)
 
 /**************************** kończenie gry ***********************************/
 
-function end(x, y)	//przyjmuje położenie króla; zwraca 0, jeśli gra nie jest zakończona
-{
-	if (board[x][y].value!=1)	//jeśli przyjęte parametry nie są adresem króla
-	{
-		if (zbite[0]>23) var winner = id_white;
-		else {if (zbite[1]>11) var winner = id_black;
-		else return 0;}
-	}
-	else if ((board[x-oneoneone(x)][y].value)%2+(board[x+oneone(x)][y].value)%2+(board[x][y-oneoneone(y)].value)%2+(board[x][y+oneone(y)].value)%2 == 4)
-	{	var winner = id_black;	}
-	else if (x%10==0 && y%10==0)
-	{	var winner = id_white;	}
-	else {	return 0;	}
+function game_over(winner_color, message) {
 
-	xml.open('GET', 'game_end.php?game='+game+'&winner='+winner+'&setting='+setting, true);
+	xml.open('GET', 'game_end.php?game='+game+'&winner='+players_id[winner_color]+'&setting='+setting, true);
 	xml.send(null);
 	for (x=0; x<11; x++)
 	{
@@ -360,7 +357,32 @@ function end(x, y)	//przyjmuje położenie króla; zwraca 0, jeśli gra nie jest
 		}
 	}
 
-	$('#current_player').html("Gra zakończona. Zwyciężył(a) "+players[winner]);
+	$('#current_player').html(message+players[winner_color]);
 	alert ('game over');
 
+}
+
+function end(x, y)	//przyjmuje położenie króla; zwraca 0, jeśli gra nie jest zakończona
+{
+	if (board[x][y].value!=1)	//jeśli przyjęte parametry nie są adresem króla
+	{
+		if (zbite[0]>23) var winner = 1;
+		else {if (zbite[1]>11) var winner = 0;
+						else {switch_players(); return 0;}
+					}
+	}
+	else if ((board[x-oneoneone(x)][y].value)%2+(board[x+oneone(x)][y].value)%2+(board[x][y-oneoneone(y)].value)%2+(board[x][y+oneone(y)].value)%2 == 4)
+	{	var winner = 0;	}	//0 - czarne
+	else if (x%10==0 && y%10==0)
+	{	var winner = 1;	}	//1 - białe
+	else {	switch_players(); return 0;	}
+
+	game_over(winner, "Gra zakończona. Zwyciężył(a): ");
+}
+
+
+function surrender()	{
+	if (!confirm("czy na pewno chcesz poddać grę?")) return 0;
+
+	game_over((color+1)%2, "Poddałaś_eś się. Zwyciężył(a) ");
 }
