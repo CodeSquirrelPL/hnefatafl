@@ -179,7 +179,45 @@ function rozstaw_figury()
 	x = white[0][0];
 	y = white[0][1];
 	board[x][y].set(1);
+/*
+	move=1;
+	board[10][2].set(2);
+	board[10][3].set(3);
+	board[9][3].set(2);
+	board[10][4].set(3);
+	board[9][4].set(2);
+	board[10][5].set(3);
+	board[9][5].set(2);
+	board[10][6].set(2);
 
+	board[2][10].set(2);
+	board[3][10].set(3);
+	board[3][9].set(2);
+	board[4][10].set(3);
+	board[4][9].set(2);
+	board[5][10].set(3);
+	board[5][9].set(2);
+	board[6][10].set(2);
+
+	board[2][0].set(2);
+	board[3][0].set(3);
+	board[3][1].set(2);
+	board[4][0].set(3);
+	board[4][1].set(2);
+	board[5][0].set(3);
+	board[5][1].set(2);
+	board[6][0].set(2);
+
+	board[0][2].set(2);
+	board[0][3].set(3);
+	board[1][3].set(2);
+	board[0][4].set(3);
+	board[1][4].set(2);
+	board[0][5].set(3);
+	board[1][5].set(2);
+	board[0][6].set(2);
+
+*/
 	for (i=1; i<13; i++)
 	{
 		x = white[i][0];
@@ -312,6 +350,8 @@ function moving(x, y)
 	x1=0;
 	y1=0;
 	if_striking(x, y);
+	if(x%10==0 || y%10==0) shieldwall(x, y, 0);
+	if(x%8==1 || y%8==1) shieldwall(x, y, 1);
 	move++;
 	if (board[x][y].value==1) end(x, y);
 	document.getElementById("current_player").innerHTML = players[move%2];
@@ -340,12 +380,111 @@ function striking(x, y)
 		if (board[x][y].value==1) {end(x,y); return 0};
 		zbite[board[x][y].value%2]++;
 		var side="";
-		for (i=zbite[board[x][y].value%2]; i>0; i--)
+		for (s=zbite[board[x][y].value%2]; s>0; s--)
 		{
 			side += url[board[x][y].value-1];	//
 		}
 		document.getElementById("side_"+(board[x][y].value-1)%2).innerHTML = side;
 		board[x][y].set(0);
+}
+
+function shieldwall(x,y,d)	{
+	/*
+	1. czy pionek jest tuż przy krawędzi planszy lub o jedno pole dalej
+	2a. jeśli pionek stoi przy krawędzi planszy, czy obok niego stoi wrogi pionek
+	2b. jeśli pionek stoi jedno pole dalej, czy między nim a krawędzią stoi wrogi pionek
+	3. ...
+	*/
+	//scenariusz 1: dostawiony pionek jest bezpośrednio przy krawędzi planszy
+	//1a) krawędź wg osi x, po lewej stoi wrogi pionek 1b) krawędź wg x, po prawej stoi wrogi pionek 1c) krawędź wg y, po lewej wrogi pionek 1d) krawędź wg y, po prawej wrogi pionek
+
+	//czy obok pionka dostawionego do krawędzi planszy stoi wrogi pionek
+
+
+	if (d==1) {
+		if (x==9 && board[10][y].whoseCounter()==(move+1)%2+1) {
+			if (y!=0 && board[10][y-1].whoseCounter()==move%2+1) {x=10; y=y-1;}
+			else if (y!=10 && board[10][y+1].whoseCounter()==move%2+1) {x=10; y=y+1;}
+			else if (y!=0 && board[9][y-1].whoseCounter()==move%2+1) return shieldwall(9, y-1, 1);
+			else if (y!=10 && board[9][y+1].whoseCounter()==move%2+1) return shieldwall(9, y+1, 1);
+		}
+		else if (x==1 && board[0][y].whoseCounter()==(move+1)%2+1) {
+			if (y!=0 && board[0][y-1].whoseCounter()==move%2+1) {x=0; y=y-1;}
+			else if (y!=10 && board[0][y+1].whoseCounter()==move%2+1) {x=0; y=y+1;}
+			else if (y!=0 && board[1][y-1].whoseCounter()==move%2+1) return shieldwall(1, y-1, 1);
+			else if (y!=10 && board[1][y+1].whoseCounter()==move%2+1) return shieldwall(1, y+1, 1);
+		}
+		else if (y==9 && board[x][10].whoseCounter()==(move+1)%2+1) {
+			if (x!=0 && board[x-1][10].whoseCounter()==move%2+1) {x=x-1; y=10;}
+			else if (x!=10 && board[x+1][10].whoseCounter()==move%2+1) {x=x+1; y=10;}
+			else if (x!=0 && board[x-1][9].whoseCounter()==move%2+1) return shieldwall(x-1, 9, 1);
+			else if (x!=10 && board[x+1][9].whoseCounter()==move%2+1) return shieldwall(x+1, 9, 1);
+		}
+		else if (y==1 && board[x][0].whoseCounter()==(move+1)%2+1) {
+			console.log("y==1");
+			if (x!=0 && board[x-1][0].whoseCounter()==move%2+1) {x=x-1; y=0;}
+			else if (x!=10 && board[x+1][0].whoseCounter()==move%2+1) {x=x+1; y=0;}
+			else if (x!=0 && board[x-1][1].whoseCounter()==move%2+1) return shieldwall(x-1, 1, 1);
+			else if (x!=10 && board[x+1][1].whoseCounter()==move%2+1) return shieldwall(x+1, 1, 1);
+		}
+		else {console.log("nie ma"); return 0;}
+	}
+
+
+if (x%10==0 && ((y!=10 && board[x][y+1].whoseCounter()==(move+1)%2+1) || (y!=0 && board[x][y-1].whoseCounter()==(move+1)%2+1)))
+		{	console.log("i=0");
+			if (board[x][y+1].whoseCounter()==(move+1)%2+1) j=1;
+			else if (board[x][y-1].whoseCounter()==(move+1)%2+1) j=-1;
+			i=0;
+		}
+else if (y%10==0 && ((x!=10 && board[x+1][y].whoseCounter()==(move+1)%2+1) || (x!=0 && board[x-1][y].whoseCounter()==(move+1)%2+1)))
+		{	console.log("j=0");
+			j=0;
+			if (board[x+1][y].whoseCounter()==(move+1)%2+1) i=1;
+			else if (board[x-1][y].whoseCounter()==(move+1)%2+1) i=-1;
+		}
+else return 0;
+
+//i oraz j przechowują odległość i kierunek pola badanego od pola, na którym stoi figura, której przesunięcie uruchomiło funkcję
+
+	if (j==0) {if (y==0) d=1; if (y==10) d=-1;}
+	else if (i==0) {if (x==0) d=1; if (x==10) d=-1;}
+
+		do {
+			console.log("Pętla. i: "+i+" j: "+j+" d: "+d);
+
+			if (i==j && j==0 || (i!=0 && j!=0)) break;
+
+			console.log("pionek: "+board[x+i][y+j].whoseCounter()+", współrzędne: "+(x+i)+", "+(y+j));
+			if (board[x+(i^0)][y+j^0].whoseCounter()==move%2+1) console.log("koniec");
+
+			if (j==0)	{	//	j==0 -> przesunięcie odbywa się wzdłuż osi x -> sprawdzaj [x+i][y+d]
+				if (board[x+i][y+d].whoseCounter()==(move)%2+1) console.log("shieldwall!"); else return "zdecydowanie nie";
+				console.log("sąsiad: "+board[x+i][y+d].whoseCounter()+" współrzędne "+(x+i)+" "+(y+d));
+				if (i<0) i--; if (i>0) i++;
+			}
+
+			if (i==0)	{
+				if (board[x+d][y+j].whoseCounter()==(move)%2+1) console.log("shieldwall!"); else return "nope";
+				if (j>0) j++; if (j<0) j--;
+			}
+		} while (board[x+i][y+j].whoseCounter()==(move+1)%2+1);
+
+		console.log("koniec: "+board[x+(i^0)][y+(j^0)].whoseCounter());
+		if (board[x+(i^0)][y+(j^0)].whoseCounter()==(move)%2+1)
+			{	console.log("udało się");
+			if (j<0) j++; if (j>0) j--;
+			if (i<0) i++; if (i>0) i--;
+				do {
+					console.log("współrzędne - bicie: "+(x+i)+", "+(y+j));
+					striking(x+i, y+j);
+					if (j<0) j++; if (j>0) j--;
+					if (i<0) i++; if (i>0) i--;
+
+				} while (i || j);
+				if ((x%10==0 && ((y!=10 && board[x][y+1].whoseCounter()==(move+1)%2+1) || (y!=0 && board[x][y-1].whoseCounter()==(move+1)%2+1))) || (y%10==0 && ((x!=10 && board[x+1][y].whoseCounter()==(move+1)%2+1) || (x!=0 && board[x-1][y].whoseCounter()==(move+1)%2+1)))) shieldwall(x, y, 0);
+				}
+		else return 0;
 }
 
 /**************************** kończenie gry ***********************************/
