@@ -164,14 +164,14 @@ END;
 
 	$result = @$polaczenie->query(sprintf("SELECT * FROM challenges WHERE challenging='%s' AND received='0000-00-00 00:00:00' ORDER BY date DESC", $_SESSION['id']));
 
-	echo "<h4>Wysłane</h4>";
+	echo "<h4>Wysłane (oczekujące na odpowiedź)</h4>";
 
 	if ($result->num_rows>0)
 	{
 echo<<<END
 	<table role="presentation" class="table-wide" align="center" border="1">
 		<tr>
-			<td><h4>Data wysłania</h4></td><td><h4>Przeciwnik</h4></td><td><h4>Status</h4></td><td><h4>Akcja</h4></td>
+			<td><h4>Data wysłania</h4></td><td><h4>Przeciwnik</h4></td><td><h4>Akcja</h4></td>
 		</tr>
 END;
 
@@ -183,15 +183,8 @@ END;
 			$rezultat = $rezultat->fetch_assoc();
 					if ($rezultat['color']!="") $color='<span style="color: '.$rezultat['color'].';">';
 					else $color='<span>';
-			echo '<a href="user.php?id='.$row['challenged'].'">'.$color.$rezultat['login']."</span></a></td><td>";
-
-			if ($row['received']=="0000-00-00 00:00:00")
-			echo "Oczekiwanie";
-			else if ($row['game']==0)
-			echo "Odrzucone";
-			else echo "Przyjęto";
-
-			echo "</td><td><button>Anuluj wyzwanie</button>";
+			echo '<a href="user.php?id='.$row['challenged'].'">'.$color.$rezultat['login']."</span></a></td>";
+			echo '<td><a href="php/cancel_challenge.php?challenge='.$row['id'].'"><button>Anuluj wyzwanie</button></a>';
 			echo "</td></tr>";
 		}
 
