@@ -66,7 +66,7 @@
 		<a href="graj" class="menu__button">Zagraj przy jednym komputerze</a>
 		<a href="zasady-gry" class="menu__button">Zasady</a>
 
-		
+
 	</nav>
 	<div id="content">
 
@@ -81,15 +81,16 @@
 	<?php
 
 	if (isset($_POST['online']))
-	$rezultat = @$polaczenie->query("SELECT id, login FROM users WHERE online=1 AND login LIKE '%".mysqli_real_escape_string($polaczenie,$login)."%' ORDER BY login ASC");
+	$rezultat = @$polaczenie->query("SELECT id, login FROM users WHERE online=1 AND login LIKE '%".mysqli_real_escape_string($polaczenie,$_POST['login'])."%' ORDER BY login ASC");
 
-	else $rezultat = @$polaczenie->query("SELECT id, login FROM users WHERE login LIKE '%".mysqli_real_escape_string($polaczenie,$login)."%' ORDER BY login ASC");
+	else $rezultat = @$polaczenie->query("SELECT id, login FROM users WHERE login LIKE '%".mysqli_real_escape_string($polaczenie,$_POST['login'])."%' ORDER BY login ASC");
 
 	echo '</br><table class="table" align="center" border="1"><td><h4>Wyniki wyszukiwania</h4></td></tr>';
 
 	for ($i=$rezultat->num_rows; $i>0; $i--)
 	{
 		$row = $rezultat->fetch_assoc();
+		if ($row['id']!=$_SESSION['id'])
 		echo '<tr><td><a href="user.php?id='.$row['id'].'">'.$row['login'].'</a></td></tr>';
 	}
 
