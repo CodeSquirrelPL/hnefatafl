@@ -151,8 +151,8 @@
         );
     }
 }</script>';
-	if ($game['winner']==0) echo '<script src="js/game_ajax.js"></script>';
-	else echo '<script src="js/game_over.js"></script>';
+	if ($game['winner']==0) echo '<script src="js/game_common.js"></script><script src="js/game_ajax.js"></script>';
+	else echo '<script src="js/game_common.js"></script><script src="js/game_over.js"></script>';
  ?>
 </head>
 

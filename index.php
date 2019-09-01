@@ -21,6 +21,8 @@
 	<link rel="stylesheet" media="(min-width: 1199px)" href="css/maxi.css" type="text/css" />
 	<link rel="stylesheet" media="(max-width: 1200px) and (min-width: 800px)" href="css/midi.css" type="text/css" />
 	<link rel="stylesheet" media="(max-width: 800px)" href="css/mini.css" type="text/css" />
+	<script src="extras/jquery.js"></script>
+	<script src="js/game_common.js"></script>
 	<script src="js/game.js"></script>
 
 </head>
