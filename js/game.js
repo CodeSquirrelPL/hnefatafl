@@ -93,7 +93,7 @@ function rozstaw_figury()
 	x = white[0][0];
 	y = white[0][1];
 	board[x][y].set(1);
-
+/*
 	move=1;
 	board[10][2].set(2);
 	board[10][3].set(3);
@@ -139,9 +139,9 @@ function rozstaw_figury()
 	board[1][4].set(2);
 	board[0][5].set(3);
 	board[1][5].set(2);
-	board[0][6].set(2);
+	board[0][6].set(2);*/
 
-/*
+
 	for (i=1; i<13; i++)
 	{
 		x = white[i][0];
@@ -154,7 +154,7 @@ function rozstaw_figury()
 		x = black[i][0];
 		y = black[i][1];
 		board[x][y].set(3);
-	}*/
+	}
 
 	//console.log("rozstawianie figur. ruch "+move);
 
