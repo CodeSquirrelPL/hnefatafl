@@ -303,7 +303,7 @@ EOL;
 
 	</div>
 
-	<footer>© Copyright 2017-2019 Paulina Filipiak</footer>
+	<footer>© Copyright 2017-2019 Nikita Filipiak</footer>
 
 </div>
 </body>
