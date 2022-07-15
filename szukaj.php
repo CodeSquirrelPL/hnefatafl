@@ -66,7 +66,7 @@
 		<a href="graj" class="menu__button">Zagraj przy jednym komputerze</a>
 		<a href="zasady-gry" class="menu__button">Zasady</a>
 
-		
+
 	</nav>
 	<div id="content">
 
